@@ -1,15 +1,13 @@
 "use client";
-import getCurrentSubscription from "@/actions/getCurrentSubscriptions";
 import { CurrentUserContext } from "@/context/CurrentUserContext";
 import { Channel } from "@prisma/client";
-import { Brush, Home, PlusCircle } from "lucide-react";
+import { Brush, Eye, Home, PlusCircle } from "lucide-react";
 import Link from "next/link";
 
 import React, { useContext } from "react";
 
 import { HiMiniUserGroup } from "react-icons/hi2";
 import { PiArrowElbowLeftUpLight } from "react-icons/pi";
-import { TbEggCracked } from "react-icons/tb";
 
 import Avatar, { AvatarSize } from "./Avatar";
 import MenuItems from "./MenuItems";
@@ -20,21 +18,21 @@ const items = [
     text: "Home",
     url: "/",
   },
+  {
+    logo: <Eye />,
+    text: "Popular",
+    url: "/creator",
+  },
 
+  {
+    logo: <PlusCircle />,
+    text: "Upload",
+    url: "studio/upload",
+  },
   {
     logo: <Brush />,
     text: "Studio",
     url: "/studio",
-  },
-  {
-    logo: <PlusCircle />,
-    text: "Add Videos",
-    url: "studio/upload",
-  },
-  {
-    logo: <HiMiniUserGroup />,
-    text: "Communties",
-    url: "https://inter-taupe.vercel.app",
   },
   {
     logo: <PiArrowElbowLeftUpLight />,
@@ -42,9 +40,9 @@ const items = [
     url: "/about",
   },
   {
-    logo: <TbEggCracked />,
-    text: "New Add",
-    url: "/creator",
+    logo: <HiMiniUserGroup />,
+    text: "Communties",
+    url: "https://inter-taupe.vercel.app",
   },
 ];
 interface SideBarProps {
