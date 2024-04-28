@@ -43,3 +43,10 @@ videos/*
 !videos/*.js
 !videos/*.ts
 public/_next-video
+
+# next-video
+music/*
+!music/*.json
+!music/*.js
+!music/*.ts
+public/_next-video
