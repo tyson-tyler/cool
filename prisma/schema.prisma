@@ -71,6 +71,7 @@ model Video{
     Channel Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
     comments Comment[]
 }
+
 model Comment {
    id String @id @default(auto()) @map("_id") @db.ObjectId
    videoId String @db.ObjectId

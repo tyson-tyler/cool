@@ -22,7 +22,6 @@ export default async function getTrendingVideos(): Promise<
           viewCount: "desc",
         },
       ],
-      take: 50,
     });
 
     // Add channel information to each video and return as a tuple

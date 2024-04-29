@@ -38,6 +38,7 @@ export default async function RootLayout({
 }) {
   const currentUser = await getCurrentUser();
   const currentChannel = await getCurrentChannel();
+
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
@@ -60,6 +61,7 @@ export default async function RootLayout({
                     <Navbar />
 
                     {children}
+
                     <Footer />
                   </SidebarProvider>
                 </ThemeProvider>
