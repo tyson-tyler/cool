@@ -28,21 +28,42 @@ const VideoCard: React.FC<VideoCardProps> = ({
   const prefetchResource = (event: any) => {
     if (event.target.dataset.prefetched) return;
     event.target.dataset.prefetched = true;
+    const postIndex = event.target.dataset.postIndex
+      ? parseInt(event.target.dataset.postIndex)
+      : -1;
+    if (postIndex < 10) {
+      // Prefetch the first 10 posts immediately
+      prefetchImmediately(event.target.getAttribute("href"));
+    } else {
+      // Prefetch subsequent posts after a 1-second delay
+      setTimeout(() => {
+        prefetchImmediately(event.target.getAttribute("href"));
+      }, 1000);
+    }
+  };
+
+  const prefetchImmediately = (href: string) => {
     const prefetchLink = document.createElement("link");
     prefetchLink.rel = "prefetch";
-    prefetchLink.href = event.target.getAttribute("href");
+    prefetchLink.href = href;
     document.head.appendChild(prefetchLink);
   };
+
   const handleImageLoad = () => {
     setIsLoading(false);
   };
+
   return (
     <Link
       className="m-auto w-full block mt-13 mb-3"
       href={`/video/${video.id}`}
       prefetch={true}
     >
-      <div className="relative w-full flex justify-center md:h-[400px] lg:h-[550px] max-w-128 sm:h-[400px] h-[400px] aspect-video">
+      <div
+        className="relative w-full flex justify-center md:h-[400px] lg:h-[550px] max-w-128 sm:h-[400px] h-[400px] aspect-video"
+        onMouseEnter={prefetchResource} // Prefetch on hover
+        data-post-index={video.id} // Pass the post index
+      >
         {isLoading && (
           <div className="absolute inset-0 flex justify-center items-center dark:bg-gray-700 bg-gray-500">
             <div className="animate-pulse w-full h-full dark:bg-gray-700 bg-gray-500"></div>
@@ -54,7 +75,6 @@ const VideoCard: React.FC<VideoCardProps> = ({
           alt="thumbnail"
           layout="fill"
           loading="lazy"
-          sizes="(max-width:40px):100vw"
           onLoad={handleImageLoad}
         />
       </div>
