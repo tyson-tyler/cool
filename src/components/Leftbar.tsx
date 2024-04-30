@@ -1,14 +1,7 @@
 "use client";
 import { CurrentUserContext } from "@/context/CurrentUserContext";
 import { Channel } from "@prisma/client";
-import {
-  Brush,
-  CirclePlus,
-  Eye,
-  Home,
-  PlusCircle,
-  Videotape,
-} from "lucide-react";
+import { Brush, CirclePlus, Eye, Home } from "lucide-react";
 import Link from "next/link";
 
 import React, { useContext } from "react";
@@ -37,11 +30,6 @@ const items = [
     url: "/creator",
   },
 
-  {
-    logo: <PiArrowElbowLeftUpLight />,
-    text: "About",
-    url: "/about",
-  },
   {
     logo: <HiMiniUserGroup />,
     text: "Communties",
