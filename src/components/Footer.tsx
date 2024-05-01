@@ -37,7 +37,7 @@ const Footer = () => {
 
   return (
     <div
-      className={`fixed bottom-0 flex justify-center w-full container z-10 bg-gray-200 shadow-md dark:bg-gray-900 md:hidden mt-10 h-12 p-3`}
+      className={`fixed bottom-0 flex justify-center w-full items-center container z-10 bg-gray-200 shadow-md dark:bg-gray-900 md:hidden mt-10 h-12 p-3`}
     >
       <div className="flex justify-between md:hidden">
         {items.map((item, index) => (

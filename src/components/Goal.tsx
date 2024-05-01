@@ -23,7 +23,7 @@ const Goal = () => {
         </Button>
       </div>
       <video
-        src={"/5.webm"}
+        src={"/5.mp4"}
         autoPlay
         loop
         muted
