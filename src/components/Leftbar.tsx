@@ -11,7 +11,7 @@ import { PiArrowElbowLeftUpLight } from "react-icons/pi";
 
 import Avatar, { AvatarSize } from "./Avatar";
 import MenuItems from "./MenuItems";
-import MenuItem from "./MenuItem";
+import { TiMediaFastForwardOutline } from "react-icons/ti";
 import { MdAccountCircle, MdWifiChannel } from "react-icons/md";
 import { CreateChannelModalContext } from "@/context/CreateChannelModelContext";
 import { useRouter } from "next/navigation";
@@ -34,6 +34,11 @@ const items = [
     logo: <HiMiniUserGroup />,
     text: "Communties",
     url: "https://inter-taupe.vercel.app",
+  },
+  {
+    logo: <TiMediaFastForwardOutline />,
+    text: "About",
+    url: "/about",
   },
 ];
 interface SideBarProps {
