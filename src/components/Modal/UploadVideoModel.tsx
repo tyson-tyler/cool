@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { MdClose } from "react-icons/md";
 import MediaUpload from "../MediaUpload";
 import { UploadCloudIcon } from "lucide-react";
-import Button from "../shared/Button";
+import { Button } from "../ui/button";
 
 interface UploadVideoModalProps {
   onUpload: (value: string) => void;
@@ -45,9 +45,7 @@ const UploadVideoModel: React.FC<UploadVideoModalProps> = ({ onUpload }) => {
           </p>
         </div>
         <MediaUpload onChange={handleUpload}>
-          <Button type="primary" className="hover:opacity-75 p-4">
-            Choose files
-          </Button>
+          <Button className="p-4">Choose files</Button>
         </MediaUpload>
       </div>
     </div>
