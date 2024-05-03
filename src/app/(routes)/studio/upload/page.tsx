@@ -1,7 +1,7 @@
 "use client";
 
 import UploadVideoModel from "@/components/Modal/UploadVideoModel";
-import Button from "@/components/shared/Button";
+import { Button } from "@/components/ui/button";
 import VideoUploadForm from "@/components/studio/upload/VideoUploadForm";
 import { UploadVideoModeContext } from "@/context/UploadVideoModelContext";
 import { useRouter } from "next/navigation";
@@ -11,6 +11,8 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useProtectedRoute } from "@/hooks/useProtectedRoutes";
+import Loader from "@/components/Loader";
+import LeftBar from "@/components/Leftbar";
 
 export default function UploadPage() {
   useProtectedRoute();
@@ -61,6 +63,7 @@ export default function UploadPage() {
       .finally(() => setIsLoading(false));
   };
   const [isLoading, setIsLoading] = useState(false);
+
   return (
     <>
       {uploadVideoModal?.isOpen && (
@@ -74,18 +77,26 @@ export default function UploadPage() {
           <h1 className="text-2xl usespan font-semibold">Upload</h1>
           <span className="flex gap-4">
             <Button
-              type="box"
+              variant={"ghost"}
               className="p-4 hover:opacity-75"
               onClick={() => router.back()}
             >
               Cancel
             </Button>
             <Button
-              type="primary"
               className="p-3 hover:opacity-75"
               onClick={handleSubmit(onSubmit)}
+              disabled={isLoading}
             >
-              Publish
+              {isLoading ? (
+                <div className="flex ml-2">
+                  {" "}
+                  <Loader />
+                  Publishing
+                </div>
+              ) : (
+                "Publish"
+              )}
             </Button>
           </span>
         </div>

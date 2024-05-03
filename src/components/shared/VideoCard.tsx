@@ -80,21 +80,21 @@ const VideoCard: React.FC<VideoCardProps> = ({
       </div>
 
       <div className="flex gap-x-5 mt-4 flex-col">
-        <h3 className="font-semibold text-lg">{truncatedTitle}</h3>
+        <h3 className="font-semibold text-lg ml-3">{truncatedTitle}</h3>
         {channel ? (
-          <div className="flex gap-2 items-center ">
+          <div className="flex gap-2 items-center ml-3">
             <Avatar size={AvatarSize.medium} imageSrc={channel.imageSrc} />
             <p className="text-gray-500 text-sm whitespace-nowrap">
               {channel.name}
             </p>
           </div>
         ) : null}
-        <p className="text-gray-500 text-sm  mt-2 mb-1">
+        <p className="text-gray-500 text-sm  mt-2 mb-1 ml-3">
           {compactNumberFormat(video.viewCount)} views * {""}
           {dayjs(video.createdAt).fromNow()}
         </p>
         {includeDescription ? (
-          <div className="whitespace-pre-line text-sm text-gray-500">
+          <div className="whitespace-pre-line text-sm text-gray-500 ml-3">
             {video.description.split("/n").map((line, index) => {
               return line === "" ? <br key={index} /> : <p>{line}</p>;
             })}
