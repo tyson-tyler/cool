@@ -1,7 +1,7 @@
 "use client";
 
 import Avatar from "@/components/Avatar";
-import Button from "@/components/shared/Button";
+import { Button } from "@/components/ui/button";
 import { CurrentChannelContext } from "@/context/CreateChannelContext";
 import { useComment } from "@/hooks/useComment";
 import { useContext } from "react";
@@ -27,13 +27,13 @@ const CommentInput: React.FC<CommentInputProps> = ({ videoId }) => {
         {text ? (
           <div className="flex justify-end gap-4 mt-2">
             <Button
-              type="secondary"
+              variant={"ghost"}
               className="p-2"
               onClick={() => setText("")}
             >
               Cancel
             </Button>
-            <Button type="primary" className="p-2" onClick={submitComment}>
+            <Button className="p-2" onClick={submitComment}>
               Comment
             </Button>
           </div>

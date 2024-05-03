@@ -8,7 +8,7 @@ import Link from "next/link";
 import Avatar, { AvatarSize } from "@/components/Avatar";
 import { compactNumberFormat } from "@/utils/numUtils";
 import SubscribeButton from "@/components/SubscribeButton";
-import Button from "@/components/shared/Button";
+import { Button } from "@/components/ui/button";
 import LikeDisLikeButton from "../LikeDisLikeButton";
 
 interface LikeSubscribePageProps {
@@ -41,9 +41,7 @@ const LikeSubscribePage: React.FC<LikeSubscribePageProps> = ({
           {" "}
           {channel.userId === currentUser?.id ? (
             <Link href="/studio" prefetch={true}>
-              <Button type="primary" className="p-2 hover:opacity-70">
-                Manage Video
-              </Button>
+              <Button className="p-2">Manage Video</Button>
             </Link>
           ) : (
             <SubscribeButton channelId={channel.id} />

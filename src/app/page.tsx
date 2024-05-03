@@ -18,7 +18,7 @@ export default async function Home() {
       <div className="sm:hidden md:flex flex flex-between md:mr-4 fixed z-50 left-0 dark:bg-black bg-white">
         <LeftBar subscribedChannels={subscriptions} />
       </div>
-      <div className="w-full lg:ml-[250px] md:ml-[110px] sm:mb-[100px] lg:mb-[0px] gap-x-10 gap-y-10 mt-9 justify-center grid-container">
+      <div className="w-full lg:ml-[250px] md:ml-[120px] sm:mb-[100px] lg:mb-[0px] gap-x-10 gap-y-10 mt-9 justify-center grid-container">
         {trendingVideos
           ? trendingVideos.map((trendingVideo) => {
               return (
