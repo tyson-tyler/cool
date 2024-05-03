@@ -3,14 +3,6 @@ import getTreadingVideo from "@/actions/getTreadingVideo";
 import LeftBar from "@/components/Leftbar";
 import VideoCard from "@/components/shared/VideoCard";
 
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: {
-    absolute: "Popluar",
-  },
-};
-
 export default async function Home() {
   const subscriptions = await getCurrentSubscription();
   const trendingVideos = await getTreadingVideo();
