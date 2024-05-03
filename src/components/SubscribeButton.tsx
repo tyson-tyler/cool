@@ -28,7 +28,7 @@ const SubscribeButton: React.FC<SubscribeButtonProps> = ({ channelId }) => {
     <Button
       variant={hasSubcribed ? "outline" : "default"}
       onClick={handleToggle}
-      className="p-2 hover:opacity-75 w-1/2 md:w-1/3 lg:w-1/5 md:mt-3 lg:mt-0"
+      className="p-4 hover:opacity-75 w-1/2 md:w-1/3 lg:w-1/5 md:mt-3 lg:mt-0 px-[30px]"
       disabled={loading}
     >
       {loading ? <Loader /> : hasSubcribed ? "Followed" : "Follow"}
