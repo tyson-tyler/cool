@@ -1,9 +1,9 @@
+import { useInfiniteQuery } from "react-query";
 import prisma from "@/vendor/db";
 import { Channel, Video } from "@prisma/client";
 
-export default async function getTrendingVideos(): Promise<
-  (Video & { channel: Channel })[]
-> {
+const fetchTrendingVideos = async (key: any, nextPage = 1) => {
+  const PAGE_SIZE = 10;
   try {
     const startDate = new Date();
     startDate.setMonth(startDate.getMonth() - 1);
@@ -22,6 +22,8 @@ export default async function getTrendingVideos(): Promise<
           viewCount: "desc",
         },
       ],
+      skip: (nextPage - 1) * PAGE_SIZE,
+      take: PAGE_SIZE,
     });
 
     // Add channel information to each video and return as a tuple
@@ -31,7 +33,8 @@ export default async function getTrendingVideos(): Promise<
     })) as (Video & { channel: Channel })[];
 
     return videosWithChannels;
-  } catch (error: any) {
-    throw new Error("Failed to fetch trending videos: " + error.message);
+  } catch (error) {
+    throw new Error("Failed to fetch trending videos: " + error);
   }
-}
+};
+export default fetchTrendingVideos;
