@@ -57,7 +57,6 @@ const VideoCard: React.FC<VideoCardProps> = ({
     <Link
       className="m-auto w-full block mt-13 mb-3"
       href={`/video/${video.id}`}
-      prefetch
     >
       <div
         className="relative w-full flex justify-center md:h-[400px] lg:h-[550px] max-w-128 sm:h-[400px] h-[400px] aspect-video"
@@ -73,8 +72,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
           className="object-cover hover:scale-105 rounded-md max-w-[40rem] duration-150 transtion-all ease-in "
           src={video.thumbnailSrc}
           alt="thumbnail"
-          layout="fill"
           loading="lazy"
+          fill
           onLoad={handleImageLoad}
         />
       </div>
