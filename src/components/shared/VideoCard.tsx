@@ -1,11 +1,11 @@
 "use client";
-import { Channel, Video } from "@prisma/client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Avatar, { AvatarSize } from "../Avatar";
 import { compactNumberFormat } from "@/utils/numUtils";
 import dayjs from "@/vendor/devjs";
-import { useState } from "react";
+import { Channel, Video } from "@prisma/client";
 
 interface VideoCardProps {
   channel?: Channel;
@@ -25,28 +25,31 @@ const VideoCard: React.FC<VideoCardProps> = ({
   const truncatedTitle =
     video.title.length > 20 ? video.title.slice(0, 20) + "..." : video.title;
   const [isLoading, setIsLoading] = useState(true);
-  const prefetchResource = (event: any) => {
-    if (event.target.dataset.prefetched) return;
-    event.target.dataset.prefetched = true;
-    const postIndex = event.target.dataset.postIndex
-      ? parseInt(event.target.dataset.postIndex)
-      : -1;
-    if (postIndex < 10) {
-      // Prefetch the first 10 posts immediately
-      prefetchImmediately(event.target.getAttribute("href"));
-    } else {
-      // Prefetch subsequent posts after a 1-second delay
-      setTimeout(() => {
-        prefetchImmediately(event.target.getAttribute("href"));
-      }, 1000);
-    }
-  };
+  const [isBottom, setIsBottom] = useState(false);
+  const [page, setPage] = useState(1);
 
-  const prefetchImmediately = (href: string) => {
-    const prefetchLink = document.createElement("link");
-    prefetchLink.rel = "prefetch";
-    prefetchLink.href = href;
-    document.head.appendChild(prefetchLink);
+  useEffect(() => {
+    function handleScroll() {
+      const isBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight;
+      setIsBottom(isBottom);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isBottom) {
+      loadMoreVideos();
+    }
+  }, [isBottom]);
+
+  const loadMoreVideos = () => {
+    // Fetch more videos from the server using page variable
+    // Update the state variables accordingly
   };
 
   const handleImageLoad = () => {
@@ -58,11 +61,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       className="m-auto w-full block mt-13 mb-3"
       href={`/video/${video.id}`}
     >
-      <div
-        className="relative w-full flex justify-center md:h-[400px] lg:h-[550px] max-w-128 sm:h-[400px] h-[400px] aspect-video"
-        onMouseEnter={prefetchResource} // Prefetch on hover
-        data-post-index={video.id} // Pass the post index
-      >
+      <div className="relative w-full flex justify-center md:h-[400px] lg:h-[550px] max-w-128 sm:h-[400px] h-[400px] aspect-video">
         {isLoading && (
           <div className="absolute inset-0 flex justify-center items-center dark:bg-gray-700 bg-gray-500">
             <div className="animate-pulse w-full h-full dark:bg-gray-700 bg-gray-500"></div>
@@ -89,7 +88,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
           </div>
         ) : null}
         <p className="text-gray-500 text-sm  mt-2 mb-1 ml-3">
-          {compactNumberFormat(video.viewCount)} views * {""}
+          {compactNumberFormat(video.viewCount)} views *{" "}
           {dayjs(video.createdAt).fromNow()}
         </p>
         {includeDescription ? (
