@@ -75,7 +75,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
         </div>
       ) : (
         <div className="flex flex-col">
-          <span className="lg:text-md md:text-sm font-bold usespan mb-2">
+          <span className="lg:text-md md:hidden font-bold usespan mb-2">
             Please Sign In
           </span>
           <SignInButton />

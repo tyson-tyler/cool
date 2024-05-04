@@ -72,8 +72,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
           className="object-cover hover:scale-105 rounded-md max-w-[40rem] duration-150 transtion-all ease-in "
           src={video.thumbnailSrc}
           alt="thumbnail"
+          layout="fill"
           loading="lazy"
-          fill
           onLoad={handleImageLoad}
         />
       </div>
@@ -81,7 +81,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       <div className="flex gap-x-5 mt-4 flex-col">
         <h3 className="font-semibold text-lg ml-3">{truncatedTitle}</h3>
         {channel ? (
-          <div className="flex gap-2 items-center ml-3">
+          <div className="flex gap-2 items-center ml-2">
             <Avatar size={AvatarSize.medium} imageSrc={channel.imageSrc} />
             <p className="text-gray-500 text-sm whitespace-nowrap">
               {channel.name}
