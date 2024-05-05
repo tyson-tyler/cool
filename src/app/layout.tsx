@@ -19,6 +19,7 @@ import SidebarProvider from "@/context/SidebarContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
+import { QueryClient, QueryClientProvider } from "react-query";
 
 export const metadata: Metadata = {
   title: {

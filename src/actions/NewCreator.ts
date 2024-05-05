@@ -5,26 +5,45 @@ export default async function getTrendingVideos(): Promise<
   (Video & { channel: Channel })[]
 > {
   try {
-    const videos = await prisma.video.findMany({
-      include: {
-        Channel: true,
-      },
+    const videos: (Video & { channel: Channel })[] = [];
 
-      orderBy: [
-        {
-          createdAt: "desc",
+    let skip = 0;
+    const take = 2;
+
+    while (true) {
+      const fetchedVideos = await prisma.video.findMany({
+        include: {
+          Channel: true,
         },
-      ],
-      take: 50,
-    });
+        orderBy: [
+          {
+            createdAt: "desc",
+          },
+        ],
+        skip,
+        take,
+      });
 
-    // Add channel information to each video and return as a tuple
-    const videosWithChannels = videos.map((video) => ({
-      ...video,
-      channel: video.Channel || null, // Ensure channel property is not undefined
-    })) as (Video & { channel: Channel })[];
+      const videosWithChannels = fetchedVideos.map((video) => ({
+        ...video,
+        channel: video.Channel || null,
+      }));
 
-    return videosWithChannels;
+      videos.push(...videosWithChannels);
+
+      if (fetchedVideos.length < take) {
+        // If fetchedVideos.length is less than take, it means no more videos to fetch
+        break;
+      }
+
+      // Increment skip for the next iteration
+      skip += take;
+
+      // Wait for 1 second before fetching the next batch of videos
+      await new Promise((resolve) => setTimeout(resolve, 10));
+    }
+
+    return videos;
   } catch (error: any) {
     throw new Error("Failed to fetch trending videos: " + error.message);
   }
