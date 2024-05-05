@@ -1,49 +1,57 @@
 import prisma from "@/vendor/db";
 import { Channel, Video } from "@prisma/client";
 
-export default async function getTrendingVideos(): Promise<
-  (Video & { channel: Channel })[]
-> {
+// Function to fetch videos with pagination
+async function fetchVideos(
+  offset: number,
+  limit: number
+): Promise<(Video & { channel: Channel })[]> {
   try {
-    const videos: (Video & { channel: Channel })[] = [];
-
-    let skip = 0;
-    const take = 2;
-
-    while (true) {
-      const fetchedVideos = await prisma.video.findMany({
-        include: {
-          Channel: true,
+    const videos = await prisma.video.findMany({
+      include: {
+        Channel: true,
+      },
+      orderBy: [
+        {
+          createdAt: "desc",
         },
-        orderBy: [
-          {
-            createdAt: "desc",
-          },
-        ],
-        skip,
-        take,
-      });
+      ],
+      skip: offset,
+      take: limit,
+    });
 
-      const videosWithChannels = fetchedVideos.map((video) => ({
-        ...video,
-        channel: video.Channel || null,
-      }));
+    // Add channel information to each video and return as a tuple
+    const videosWithChannels = videos.map((video) => ({
+      ...video,
+      channel: video.Channel || null, // Ensure channel property is not undefined
+    })) as (Video & { channel: Channel })[];
 
-      videos.push(...videosWithChannels);
+    return videosWithChannels;
+  } catch (error: any) {
+    throw new Error("Failed to fetch trending videos: " + error.message);
+  }
+}
 
-      if (fetchedVideos.length < take) {
-        // If fetchedVideos.length is less than take, it means no more videos to fetch
-        break;
-      }
+// Function to get trending videos with infinite scrolling
+export default async function getTrendingVideos(
+  pageSize: number = 10
+): Promise<(Video & { channel: Channel })[]> {
+  let offset = 0;
+  const allVideos: (Video & { channel: Channel })[] = [];
 
-      // Increment skip for the next iteration
-      skip += take;
+  try {
+    // Fetch initial set of videos
+    let videos = await fetchVideos(offset, pageSize);
+    allVideos.push(...videos);
 
-      // Wait for 1 second before fetching the next batch of videos
-      await new Promise((resolve) => setTimeout(resolve, 10));
+    // Keep fetching more videos until no more are available
+    while (videos.length === pageSize) {
+      offset += pageSize;
+      videos = await fetchVideos(offset, pageSize);
+      allVideos.push(...videos);
     }
 
-    return videos;
+    return allVideos;
   } catch (error: any) {
     throw new Error("Failed to fetch trending videos: " + error.message);
   }

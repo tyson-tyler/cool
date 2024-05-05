@@ -1,37 +1,60 @@
-import getTreadingVideo from "@/actions/NewCreator";
-import LeftBar from "@/components/Leftbar";
-import VideoCard from "@/components/shared/VideoCard";
-import getCurrentSubscription from "@/actions/getCurrentSubscriptions";
-
+import BoxCard from "@/components/Box";
+import BoxCard1 from "@/components/Box1";
+import BoxCard2 from "@/components/Box2";
+import Goal from "@/components/Goal";
+import Videomodel from "@/components/Videomodel";
+import Strop from "@/components/strop";
+import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Home",
+    absolute: "About",
   },
 };
-export default async function Home() {
-  const trendingVideos = await getTreadingVideo();
-  const subscriptions = await getCurrentSubscription();
+
+const About = () => {
   return (
-    <div className="w-full relative  mt-16 flex justify-center">
-      <div className="sm:hidden md:flex flex flex-between md:mr-4">
-        <LeftBar subscribedChannels={subscriptions} />
-      </div>
-      <div className="basis-[85%] sm:mb-[100px] lg:mb-[0px] gap-x-10 gap-y-10 mt-5 justify-center grid-container">
-        {trendingVideos
-          ? trendingVideos.map((trendingVideo) => {
-              return (
-                <VideoCard
-                  key={trendingVideo.id}
-                  video={trendingVideo}
-                  channel={trendingVideo.channel}
-                  channelAvatar={trendingVideo.thumbnailSrc}
-                />
-              );
-            })
-          : "No Video"}
-      </div>
-    </div>
+    <>
+      <section className="w-full flex-center  flex-col mt-6">
+        <h1 className="head_text text-center pt-[200px] dark:text-white text-black">
+          <span className="dark:text-white text-black">Explore & Create</span>
+          <br className="max-md:hidden" />
+          <span className="usespan text-center">Ai Video .</span>
+        </h1>
+
+        <p className="desc text-center text-gray-600 mt-5">
+          Myaimix is an open-sourse Ai Video & Image watch and create your own .
+        </p>
+        <div className="flex justify-center items-center mt-5 gap-3">
+          <Link href={"/about"}>
+            <Button className="p-5 justify-center flex" size={"lg"}>
+              Try it Now
+            </Button>
+          </Link>
+          <Link href={"/"}>
+            <Button
+              className="p-5 justify-center flex"
+              size={"lg"}
+              variant={"ghost"}
+            >
+              Commutinity
+            </Button>
+          </Link>
+        </div>
+        <div className="w-full justify-center mt-2 flex items-center flex-wrap">
+          <BoxCard />
+          <BoxCard1 />
+          <BoxCard2 />
+        </div>
+        <Videomodel />
+        <Goal />
+
+        <Strop />
+      </section>
+    </>
   );
-}
+};
+
+export default About;
