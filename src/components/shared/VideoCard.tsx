@@ -29,14 +29,16 @@ const VideoCard: React.FC<VideoCardProps> = ({
       href={`/video/${video.id}`}
       prefetch={true}
     >
-      <div className="relative w-full flex justify-center md:h-[400px] lg:h-[550px] max-w-128 sm:h-[400px] h-[400px] aspect-video">
+      <div className="relative w-full flex justify-center md:h-[400px] lg:h-[550px]  sm:h-[400px] h-[400px] aspect-video">
         <Image
-          className="object-cover hover:scale-105 rounded-md max-w-[40rem] duration-150 transtion-all ease-in "
+          className="object-cover hover:scale-105 rounded-md  duration-150 transtion-all ease-in "
           src={video.thumbnailSrc}
           alt="thumbnail"
-          layout="fill"
-          loading="lazy"
-          sizes="(max-width:40px):100vw"
+          priority
+          fill
+          placeholder="blur"
+          blurDataURL="/blur.svg"
+          sizes="(max-width:820px) 100vw"
         />
       </div>
 

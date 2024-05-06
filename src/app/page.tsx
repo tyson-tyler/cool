@@ -49,7 +49,7 @@ const About = () => {
             </Button>
           </Link>
         </div>
-        <div className="w-full justify-center mt-2 flex items-center flex-wrap ">
+        <div className="w-full justify-center mt-5 flex items-center flex-wrap ">
           <Suspense
             fallback={
               <div>
