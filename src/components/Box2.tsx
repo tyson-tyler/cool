@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const BoxCard2 = () => {
   return (
-    <Link href={"https://inter-taupe.vercel.app"}>
+    <Link href={"https://inter-main.vercel.app"}>
       <div className="max-w-sm rounded overflow-hidden shadow-lg border-b hover:border-sky-700 md:mr-5  mr-0 transition hover:scale-105 cursor-pointer">
         <div className="relative w-full h-[300px]">
           <Image
