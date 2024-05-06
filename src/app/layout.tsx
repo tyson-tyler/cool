@@ -16,10 +16,8 @@ import CurrentChannelProvider from "@/context/CreateChannelContext";
 import UploadVideoModalProvider from "@/context/UploadVideoModelContext";
 
 import SidebarProvider from "@/context/SidebarContext";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
-import { QueryClient, QueryClientProvider } from "react-query";
 
 export const metadata: Metadata = {
   title: {
@@ -47,7 +45,6 @@ export default async function RootLayout({
       >
         <CreateChannelModalProvider>
           <Toaster />
-          <SpeedInsights />
           <CreateChannelModel />
           <CurrentUserProvider user={currentUser}>
             <CurrentChannelProvider Channel={currentChannel}>

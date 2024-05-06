@@ -49,19 +49,19 @@ const About = () => {
             </Button>
           </Link>
         </div>
-        <div className="w-full justify-center mt-5 flex items-center flex-wrap ">
-          <Suspense
-            fallback={
-              <div>
-                <SkeletonCard />
-              </div>
-            }
-          >
+        <Suspense
+          fallback={
+            <div>
+              <SkeletonCard />
+            </div>
+          }
+        >
+          <div className="w-full justify-center mt-5 flex items-center flex-wrap ">
             <BoxCard />
             <BoxCard1 />
             <BoxCard2 />
-          </Suspense>
-        </div>
+          </div>
+        </Suspense>
         <Videomodel />
         <Goal />
         <Strop />
