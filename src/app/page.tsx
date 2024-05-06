@@ -1,6 +1,13 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
+import BoxCard from "@/components/Box";
+import BoxCard1 from "@/components/Box1";
+import BoxCard2 from "@/components/Box2";
+import Videomodel from "@/components/Videomodel";
+import Goal from "@/components/Goal";
+import Strop from "@/components/strop";
 import { SkeletonCard } from "@/components/Sketon";
 
 export const metadata: Metadata = {
@@ -9,11 +16,11 @@ export const metadata: Metadata = {
   },
 };
 
-const BoxCard = lazy(() => import("@/components/Box"));
-const BoxCard1 = lazy(() => import("@/components/Box1"));
-const BoxCard2 = lazy(() => import("@/components/Box2"));
-
 const About = () => {
+  const loadBoxCard = () => import("@/components/Box");
+  const loadBoxCard1 = () => import("@/components/Box1");
+  const loadBoxCard2 = () => import("@/components/Box2");
+
   return (
     <>
       <section className="w-full flex-center  flex-col mt-6">
@@ -27,23 +34,20 @@ const About = () => {
           Myaimix is an open-source Ai Video & Image watch and create your own .
         </p>
         <div className="flex justify-center items-center mt-5 gap-3">
-          <Button
-            className="p-5 justify-center flex"
-            size={"lg"}
-            onClick={() => (window.location.href = "/about")}
-          >
-            Try it Now
-          </Button>
-          <Button
-            className="p-5 justify-center flex"
-            size={"lg"}
-            variant={"ghost"}
-            onClick={() =>
-              window.open("https://inter-taupe.vercel.app", "_blank")
-            }
-          >
-            Community
-          </Button>
+          <Link href={"/about"}>
+            <Button className="p-5 justify-center flex" size={"lg"}>
+              Try it Now
+            </Button>
+          </Link>
+          <Link href={"/https://inter-taupe.vercel.app"}>
+            <Button
+              className="p-5 justify-center flex"
+              size={"lg"}
+              variant={"ghost"}
+            >
+              Community
+            </Button>
+          </Link>
         </div>
         <div className="w-full justify-center mt-2 flex items-center flex-wrap ">
           <Suspense
@@ -58,6 +62,9 @@ const About = () => {
             <BoxCard2 />
           </Suspense>
         </div>
+        <Videomodel />
+        <Goal />
+        <Strop />
       </section>
     </>
   );
