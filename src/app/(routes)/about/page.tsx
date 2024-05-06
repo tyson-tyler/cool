@@ -4,6 +4,7 @@ import VideoCard from "@/components/shared/VideoCard";
 import getCurrentSubscription from "@/actions/getCurrentSubscriptions";
 
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: {
@@ -18,20 +19,22 @@ export default async function Home() {
       <div className="sm:hidden md:flex flex flex-between md:mr-4">
         <LeftBar subscribedChannels={subscriptions} />
       </div>
-      <div className="basis-[85%] sm:mb-[100px] lg:mb-[0px] gap-x-10 gap-y-10 mt-5 justify-center grid-container">
-        {trendingVideos
-          ? trendingVideos.map((trendingVideo) => {
-              return (
-                <VideoCard
-                  key={trendingVideo.id}
-                  video={trendingVideo}
-                  channel={trendingVideo.channel}
-                  channelAvatar={trendingVideo.thumbnailSrc}
-                />
-              );
-            })
-          : "No Video"}
-      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="basis-[85%] sm:mb-[100px] lg:mb-[0px] gap-x-10 gap-y-10 mt-5 justify-center grid-container">
+          {trendingVideos
+            ? trendingVideos.map((trendingVideo) => {
+                return (
+                  <VideoCard
+                    key={trendingVideo.id}
+                    video={trendingVideo}
+                    channel={trendingVideo.channel}
+                    channelAvatar={trendingVideo.thumbnailSrc}
+                  />
+                );
+              })
+            : "No Video"}
+        </div>
+      </Suspense>
     </div>
   );
 }

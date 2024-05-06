@@ -1,12 +1,13 @@
+import { Metadata } from "next";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Suspense } from "react";
 import BoxCard from "@/components/Box";
 import BoxCard1 from "@/components/Box1";
 import BoxCard2 from "@/components/Box2";
-import Goal from "@/components/Goal";
 import Videomodel from "@/components/Videomodel";
+import Goal from "@/components/Goal";
 import Strop from "@/components/strop";
-import { Button } from "@/components/ui/button";
-import { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: {
@@ -15,6 +16,10 @@ export const metadata: Metadata = {
 };
 
 const About = () => {
+  const loadBoxCard = () => import("@/components/Box");
+  const loadBoxCard1 = () => import("@/components/Box1");
+  const loadBoxCard2 = () => import("@/components/Box2");
+
   return (
     <>
       <section className="w-full flex-center  flex-col mt-6">
@@ -25,7 +30,7 @@ const About = () => {
         </h1>
 
         <p className="desc text-center text-gray-600 mt-5">
-          Myaimix is an open-sourse Ai Video & Image watch and create your own .
+          Myaimix is an open-source Ai Video & Image watch and create your own .
         </p>
         <div className="flex justify-center items-center mt-5 gap-3">
           <Link href={"/about"}>
@@ -39,18 +44,19 @@ const About = () => {
               size={"lg"}
               variant={"ghost"}
             >
-              Commutinity
+              Community
             </Button>
           </Link>
         </div>
-        {/* <div className="w-full justify-center mt-2 flex items-center flex-wrap ">
-          <BoxCard />
-          <BoxCard1 />
-          <BoxCard2 />
-        </div> */}
+        <div className="w-full justify-center mt-2 flex items-center flex-wrap ">
+          <Suspense fallback={<div>Loading...</div>}>
+            <BoxCard />
+            <BoxCard1 />
+            <BoxCard2 />
+          </Suspense>
+        </div>
         <Videomodel />
         <Goal />
-
         <Strop />
       </section>
     </>
