@@ -10,8 +10,9 @@ const BoxCard2 = () => {
             src={"/3.webp"}
             alt="hello"
             layout="fill"
-            objectFit="cover"
-            loading="lazy"
+            objectFit="cover" // Covers the container while maintaining aspect ratio
+            loading="lazy" // Lazy loading for improved performance
+            quality={75}
           />
         </div>
 

@@ -18,9 +18,10 @@ const BoxCard = () => {
             <Image
               src={"/1.webp"}
               alt="hello"
-              layout="fill"
-              objectFit="cover"
-              loading="lazy"
+              layout="fill" // Fills the container with the image
+              objectFit="cover" // Covers the container while maintaining aspect ratio
+              loading="lazy" // Lazy loading for improved performance
+              quality={75}
             />
           </Suspense>
         </div>
