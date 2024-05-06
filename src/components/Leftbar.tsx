@@ -33,7 +33,7 @@ const items = [
   {
     logo: <HiMiniUserGroup />,
     text: "Communties",
-    url: "https://inter-taupe.vercel.app",
+    url: "https://inter-main.vercel.app",
   },
   {
     logo: <TiMediaFastForwardOutline />,

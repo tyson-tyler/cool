@@ -1,5 +1,6 @@
 // components/BoxCard.js
 
+import Image from "next/image";
 import Link from "next/link";
 
 const BoxCard = () => {
@@ -7,7 +8,7 @@ const BoxCard = () => {
     <Link href={"/"}>
       <div className="max-w-sm rounded overflow-hidden shadow-lg border-b hover:border-sky-700 md:mr-5  mr-0 transition hover:scale-105 cursor-pointer">
         <img
-          src={"/2.gif"}
+          src={"/1.gif"}
           alt="hello"
           className="w-full pt-6 h-[300px] object-cover"
         />

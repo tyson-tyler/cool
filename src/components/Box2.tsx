@@ -10,6 +10,7 @@ const BoxCard2 = () => {
           alt="hello"
           className="w-full pt-6 h-[300px] object-cover"
         />
+
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">Don't Fell Alone</div>
           <p className="text-gray-700 text-base">
