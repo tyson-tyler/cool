@@ -11,7 +11,7 @@ const BoxCard2 = () => {
             alt="hello"
             layout="fill"
             objectFit="cover" // Covers the container while maintaining aspect ratio
-            loading="lazy" // Lazy loading for improved performance
+            priority // Lazy loading for improved performance
             quality={75}
           />
         </div>
