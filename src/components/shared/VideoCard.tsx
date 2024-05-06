@@ -29,7 +29,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       href={`/video/${video.id}`}
       prefetch={true}
     >
-      <div className="relative w-full flex justify-center md:h-[400px] lg:h-[550px]  sm:h-[400px] h-[400px] aspect-video">
+      <div className="relative w-full flex justify-center md:h-[450px] lg:h-[550px] sm:h-[430px] h-[420px] aspect-video">
         <Image
           className="object-cover hover:scale-105 rounded-md  duration-150 transtion-all ease-in "
           src={video.thumbnailSrc}
