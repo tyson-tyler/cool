@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 const Goal = () => {
   return (
@@ -15,15 +16,17 @@ const Goal = () => {
         <p className="desc text-center text-gray-600 mt-5">
           Our Goal is to accessible ai video for everyone and everybody.
         </p>
-        <Button
-          className="flex justify-center w-full md:w-1/2 ml-2 mr-2 m-auto mt-4 transform transition hover:scale-105"
-          size={"lg"}
-        >
-          Read Our Blogs
-        </Button>
+        <Link href={"/blog"}>
+          <Button
+            className="flex justify-center w-full md:w-1/2 ml-2 mr-2 m-auto mt-4 transform transition hover:scale-105"
+            size={"lg"}
+          >
+            Read Our Blogs
+          </Button>
+        </Link>
       </div>
       <video
-        src={"/5.mp4"}
+        src={"/5.webm"}
         autoPlay
         loop
         muted

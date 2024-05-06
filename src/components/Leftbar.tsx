@@ -22,7 +22,7 @@ const items = [
   {
     logo: <Home />,
     text: "Home",
-    url: "/",
+    url: "/about",
   },
   {
     logo: <Eye />,
@@ -38,7 +38,7 @@ const items = [
   {
     logo: <TiMediaFastForwardOutline />,
     text: "About",
-    url: "/about",
+    url: "/",
   },
 ];
 interface SideBarProps {

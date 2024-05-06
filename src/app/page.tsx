@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "About",
+    absolute: "Home",
   },
 };
 
@@ -33,7 +33,7 @@ const About = () => {
               Try it Now
             </Button>
           </Link>
-          <Link href={"/"}>
+          <Link href={"/https://inter-taupe.vercel.app"}>
             <Button
               className="p-5 justify-center flex"
               size={"lg"}
@@ -43,11 +43,11 @@ const About = () => {
             </Button>
           </Link>
         </div>
-        <div className="w-full justify-center mt-2 flex items-center flex-wrap">
+        {/* <div className="w-full justify-center mt-2 flex items-center flex-wrap ">
           <BoxCard />
           <BoxCard1 />
           <BoxCard2 />
-        </div>
+        </div> */}
         <Videomodel />
         <Goal />
 
