@@ -8,6 +8,7 @@ import BoxCard2 from "@/components/Box2";
 import Videomodel from "@/components/Videomodel";
 import Goal from "@/components/Goal";
 import Strop from "@/components/strop";
+import { SkeletonCard } from "@/components/Sketon";
 
 export const metadata: Metadata = {
   title: {
@@ -49,7 +50,13 @@ const About = () => {
           </Link>
         </div>
         <div className="w-full justify-center mt-2 flex items-center flex-wrap ">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense
+            fallback={
+              <div>
+                <SkeletonCard />
+              </div>
+            }
+          >
             <BoxCard />
             <BoxCard1 />
             <BoxCard2 />
