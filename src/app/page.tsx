@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Suspense, lazy } from "react";
 import { SkeletonCard } from "@/components/Sketon";
@@ -28,20 +27,23 @@ const About = () => {
           Myaimix is an open-source Ai Video & Image watch and create your own .
         </p>
         <div className="flex justify-center items-center mt-5 gap-3">
-          <Link href={"/about"}>
-            <Button className="p-5 justify-center flex" size={"lg"}>
-              Try it Now
-            </Button>
-          </Link>
-          <a href="https://inter-taupe.vercel.app" target="_blank">
-            <Button
-              className="p-5 justify-center flex"
-              size={"lg"}
-              variant={"ghost"}
-            >
-              Community
-            </Button>
-          </a>
+          <Button
+            className="p-5 justify-center flex"
+            size={"lg"}
+            onClick={() => (window.location.href = "/about")}
+          >
+            Try it Now
+          </Button>
+          <Button
+            className="p-5 justify-center flex"
+            size={"lg"}
+            variant={"ghost"}
+            onClick={() =>
+              window.open("https://inter-taupe.vercel.app", "_blank")
+            }
+          >
+            Community
+          </Button>
         </div>
         <div className="w-full justify-center mt-2 flex items-center flex-wrap ">
           <Suspense
