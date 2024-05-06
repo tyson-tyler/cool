@@ -1,13 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Suspense } from "react";
-import BoxCard from "@/components/Box";
-import BoxCard1 from "@/components/Box1";
-import BoxCard2 from "@/components/Box2";
-import Videomodel from "@/components/Videomodel";
-import Goal from "@/components/Goal";
-import Strop from "@/components/strop";
+import { Suspense, lazy } from "react";
 import { SkeletonCard } from "@/components/Sketon";
 
 export const metadata: Metadata = {
@@ -16,11 +10,15 @@ export const metadata: Metadata = {
   },
 };
 
-const About = () => {
-  const loadBoxCard = () => import("@/components/Box");
-  const loadBoxCard1 = () => import("@/components/Box1");
-  const loadBoxCard2 = () => import("@/components/Box2");
+// Lazy-loaded components
+const BoxCard = lazy(() => import("@/components/Box"));
+const BoxCard1 = lazy(() => import("@/components/Box1"));
+const BoxCard2 = lazy(() => import("@/components/Box2"));
+const Videomodel = lazy(() => import("@/components/Videomodel"));
+const Goal = lazy(() => import("@/components/Goal"));
+const Strop = lazy(() => import("@/components/strop"));
 
+const About = () => {
   return (
     <>
       <section className="w-full flex-center  flex-col mt-6">
@@ -57,14 +55,30 @@ const About = () => {
           }
         >
           <div className="w-full justify-center mt-5 flex items-center flex-wrap ">
-            <BoxCard />
-            <BoxCard1 />
-            <BoxCard2 />
+            <Suspense
+              fallback={
+                <div>
+                  <SkeletonCard />
+                </div>
+              }
+            >
+              <BoxCard />
+              <BoxCard1 />
+              <BoxCard2 />
+            </Suspense>
+            <Suspense
+              fallback={
+                <div>
+                  <SkeletonCard />
+                </div>
+              }
+            >
+              <Videomodel />
+              <Goal />
+              <Strop />
+            </Suspense>
           </div>
         </Suspense>
-        <Videomodel />
-        <Goal />
-        <Strop />
       </section>
     </>
   );
