@@ -39,7 +39,7 @@ const About = () => {
               Try it Now
             </Button>
           </Link>
-          <Link href={"/https://inter-main.vercel.app"}>
+          <a href={"https://inter-main.vercel.app"}>
             <Button
               className="p-5 justify-center flex"
               size={"lg"}
@@ -47,7 +47,7 @@ const About = () => {
             >
               Community
             </Button>
-          </Link>
+          </a>
         </div>
         <Suspense
           fallback={
