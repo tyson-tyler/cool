@@ -86,6 +86,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
       {/* {currentChannel ? <div>
         
       </div> : null} */}
+
       <div
         onClick={() => {
           if (!currentChannel) {

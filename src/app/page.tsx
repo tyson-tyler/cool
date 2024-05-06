@@ -1,13 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Suspense } from "react";
-import BoxCard from "@/components/Box";
-import BoxCard1 from "@/components/Box1";
-import BoxCard2 from "@/components/Box2";
-import Videomodel from "@/components/Videomodel";
-import Goal from "@/components/Goal";
-import Strop from "@/components/strop";
+import { Suspense, lazy } from "react";
 import { SkeletonCard } from "@/components/Sketon";
 
 export const metadata: Metadata = {
@@ -16,11 +10,11 @@ export const metadata: Metadata = {
   },
 };
 
-const About = () => {
-  const loadBoxCard = () => import("@/components/Box");
-  const loadBoxCard1 = () => import("@/components/Box1");
-  const loadBoxCard2 = () => import("@/components/Box2");
+const BoxCard = lazy(() => import("@/components/Box"));
+const BoxCard1 = lazy(() => import("@/components/Box1"));
+const BoxCard2 = lazy(() => import("@/components/Box2"));
 
+const About = () => {
   return (
     <>
       <section className="w-full flex-center  flex-col mt-6">
@@ -39,7 +33,7 @@ const About = () => {
               Try it Now
             </Button>
           </Link>
-          <Link href={"/https://inter-taupe.vercel.app"}>
+          <a href="https://inter-taupe.vercel.app" target="_blank">
             <Button
               className="p-5 justify-center flex"
               size={"lg"}
@@ -47,7 +41,7 @@ const About = () => {
             >
               Community
             </Button>
-          </Link>
+          </a>
         </div>
         <div className="w-full justify-center mt-2 flex items-center flex-wrap ">
           <Suspense
@@ -62,9 +56,6 @@ const About = () => {
             <BoxCard2 />
           </Suspense>
         </div>
-        <Videomodel />
-        <Goal />
-        <Strop />
       </section>
     </>
   );
