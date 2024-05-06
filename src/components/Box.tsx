@@ -16,7 +16,7 @@ const BoxCard = () => {
             }
           >
             <Image
-              src={"/2.gif"}
+              src={"/1.webp"}
               alt="hello"
               layout="fill"
               objectFit="cover"

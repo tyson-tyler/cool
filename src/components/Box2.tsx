@@ -7,7 +7,7 @@ const BoxCard2 = () => {
       <div className="max-w-sm rounded overflow-hidden shadow-lg border-b hover:border-sky-700 md:mr-5  mr-0 transition hover:scale-105 cursor-pointer">
         <div className="relative w-full h-[300px]">
           <Image
-            src={"/3.gif"}
+            src={"/3.webp"}
             alt="hello"
             layout="fill"
             objectFit="cover"
