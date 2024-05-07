@@ -31,7 +31,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
     >
       <div className="relative w-full flex justify-center md:h-[400px] lg:h-[550px] sm:h-[400px] h-[400px] aspect-video">
         <Image
-          className="object-cover hover:scale-105 rounded-md max-w-[40rem] duration-150 transtion-all ease-in "
+          className="object-cover md:hover:scale-105 rounded-md max-w-[40rem] duration-150 transtion-all ease-in "
           src={video.thumbnailSrc}
           alt="thumbnail"
           priority

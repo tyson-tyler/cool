@@ -11,12 +11,6 @@ export const metadata: Metadata = {
 };
 
 // Lazy-loaded components
-const BoxCard = lazy(() => import("@/components/Box"));
-const BoxCard1 = lazy(() => import("@/components/Box1"));
-const BoxCard2 = lazy(() => import("@/components/Box2"));
-const Videomodel = lazy(() => import("@/components/Videomodel"));
-const Goal = lazy(() => import("@/components/Goal"));
-const Strop = lazy(() => import("@/components/strop"));
 
 const About = () => {
   return (
@@ -25,7 +19,7 @@ const About = () => {
         <h1 className="head_text text-center pt-[200px] dark:text-white text-black">
           <span className="dark:text-white text-black">Explore & Create</span>
           <br className="max-md:hidden" />
-          <span className="usespan text-center">Ai Video .</span>
+          <span className="usespan text-center ml-2">Ai Video</span>
         </h1>
 
         <p className="desc text-center text-gray-600 mt-5">
