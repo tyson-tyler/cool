@@ -47,38 +47,6 @@ const About = () => {
             </Button>
           </a>
         </div>
-        <Suspense
-          fallback={
-            <div>
-              <SkeletonCard />
-            </div>
-          }
-        >
-          <div className="w-full justify-center mt-5 flex items-center flex-wrap ">
-            <Suspense
-              fallback={
-                <div>
-                  <SkeletonCard />
-                </div>
-              }
-            >
-              <BoxCard />
-              <BoxCard1 />
-              <BoxCard2 />
-            </Suspense>
-            <Suspense
-              fallback={
-                <div>
-                  <SkeletonCard />
-                </div>
-              }
-            >
-              <Videomodel />
-              <Goal />
-              <Strop />
-            </Suspense>
-          </div>
-        </Suspense>
       </section>
     </>
   );
