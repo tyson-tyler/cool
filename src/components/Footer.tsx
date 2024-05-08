@@ -25,7 +25,7 @@ const items = [
   {
     logo: <HiMiniUserGroup />,
 
-    url: "https://inter-taupe.vercel.app",
+    url: "https://inter-main.vercel.app",
   },
 ];
 
