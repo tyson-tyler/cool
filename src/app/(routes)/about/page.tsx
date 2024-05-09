@@ -1,33 +1,40 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Suspense, lazy } from "react";
-import { SkeletonCard } from "@/components/Sketon";
+import getTreadingVideo from "@/actions/NewCreator";
+import LeftBar from "@/components/Leftbar";
+import VideoCard from "@/components/shared/VideoCard";
+import getCurrentSubscription from "@/actions/getCurrentSubscriptions";
 
-// Lazy-loaded components
-const LazyAbout = lazy(() => import("../../../components/About"));
+import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Home",
+    absolute: "Dashboard",
   },
 };
-
-const Preloader = () => (
-  <div className="flex-center">
-    {/* Your preloader component */}
-    <div>Loading...</div>
-  </div>
-);
-
-const About = () => {
+export default async function Home() {
+  const trendingVideos = await getTreadingVideo();
+  const subscriptions = await getCurrentSubscription();
   return (
-    <>
-      <Suspense fallback={<Preloader />}>
-        <LazyAbout />
+    <div className="w-full relative  mt-16 flex justify-center">
+      <div className="sm:hidden md:flex flex flex-between md:mr-4">
+        <LeftBar subscribedChannels={subscriptions} />
+      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="basis-[85%] sm:mb-[100px] lg:mb-[0px] gap-x-10 gap-y-10 mt-5 justify-center grid-container lg:mr-5">
+          {trendingVideos
+            ? trendingVideos.map((trendingVideo) => {
+                return (
+                  <VideoCard
+                    key={trendingVideo.id}
+                    video={trendingVideo}
+                    channel={trendingVideo.channel}
+                    channelAvatar={trendingVideo.thumbnailSrc}
+                  />
+                );
+              })
+            : "No Video"}
+        </div>
       </Suspense>
-    </>
+    </div>
   );
-};
-
-export default About;
+}

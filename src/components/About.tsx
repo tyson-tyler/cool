@@ -1,22 +1,37 @@
+"use client";
+import { useState, useEffect } from "react";
 import { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Suspense, lazy } from "react";
 import { SkeletonCard } from "@/components/Sketon";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "Home",
-  },
-};
+// export const metadata: Metadata = {
+//   title: {
+//     absolute: "Home",
+//   },
+// };
 
 // Lazy-loaded components
 
 const About = async () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate data loading delay for 2 seconds
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
+
   return (
-    <>
-      <Suspense fallback={<div>Loading...</div>}>
-        <section className="w-full flex-center  flex-col mt-6">
+    <Suspense fallback={<div>Loading...</div>}>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <section className="w-full flex-center flex-col mt-6">
           <h1 className="head_text text-center pt-[200px] dark:text-white text-black">
             <span className="dark:text-white text-black">Explore & Create</span>
             <br className="max-md:hidden" />
@@ -44,8 +59,8 @@ const About = async () => {
             </a>
           </div>
         </section>
-      </Suspense>
-    </>
+      )}
+    </Suspense>
   );
 };
 

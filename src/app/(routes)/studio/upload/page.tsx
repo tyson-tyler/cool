@@ -89,7 +89,7 @@ export default function UploadPage() {
               disabled={isLoading}
             >
               {isLoading ? (
-                <div className="flex ml-2">
+                <div className="flex mr-2">
                   {" "}
                   <Loader />
                   Publishing
