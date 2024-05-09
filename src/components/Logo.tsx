@@ -8,7 +8,7 @@ const Logo = () => {
       <Link href={"/about"} className="flex items-center" prefetch={false}>
         <div className="relative flex justify-center w-10 h-10 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12  items-center flex-row-reverse">
           <Image
-            className="ml-3 animate-pulse"
+            className="ml-3"
             src={"/logo1.svg"}
             fill
             alt="hello"
