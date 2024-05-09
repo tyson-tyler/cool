@@ -15,11 +15,11 @@ const items = [
   {
     logo: <Home />,
 
-    url: "/creator",
+    url: "/about",
   },
   {
     logo: <Eye />,
-    url: "/",
+    url: "/creator",
   },
 
   {
