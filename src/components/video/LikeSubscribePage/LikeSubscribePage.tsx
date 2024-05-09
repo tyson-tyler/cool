@@ -40,7 +40,7 @@ const LikeSubscribePage: React.FC<LikeSubscribePageProps> = ({
         <div>
           {" "}
           {channel.userId === currentUser?.id ? (
-            <Link href="/studio" prefetch={true}>
+            <Link href="/studio" prefetch={false}>
               <Button className="p-2">Manage Video</Button>
             </Link>
           ) : (
