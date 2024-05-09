@@ -21,7 +21,7 @@ const About = async () => {
     // Simulate data loading delay for 2 seconds
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 20);
 
     return () => clearTimeout(timer); // Cleanup timer on unmount
   }, []);
@@ -29,7 +29,30 @@ const About = async () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       {isLoading ? (
-        <div>Loading...</div>
+        <section className="w-full flex-center flex-col mt-6">
+          <h1 className="head_text text-center pt-[200px] dark:text-white text-black bg-gray-600 animate-pulse">
+            <span className="dark:text-white text-black"></span>
+            <br className="max-md:hidden" />
+            <span className="usespan text-center ml-2 bg-gray-600 animate-pulse"></span>
+          </h1>
+
+          <p className="desc text-center text-gray-600 mt-5 bg-gray-600 animate-pulse"></p>
+          <div className="flex justify-center items-center mt-5 gap-3 bg-gray-600 animate-pulse">
+            <Link href={"/about"}>
+              <Button
+                className="p-5 justify-center flex bg-gray-600 animate-pulse"
+                size={"lg"}
+              ></Button>
+            </Link>
+            <a href={"https://inter-main.vercel.app"}>
+              <Button
+                className="p-5 justify-center flex bg-gray-600 animate-pulse"
+                size={"lg"}
+                variant={"ghost"}
+              ></Button>
+            </a>
+          </div>
+        </section>
       ) : (
         <section className="w-full flex-center flex-col mt-6">
           <h1 className="head_text text-center pt-[200px] dark:text-white text-black">
