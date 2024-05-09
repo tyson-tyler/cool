@@ -5,6 +5,7 @@ import Link from "next/link";
 import Avatar, { AvatarSize } from "../Avatar";
 import { compactNumberFormat } from "@/utils/numUtils";
 import dayjs from "@/vendor/devjs";
+import { lazy } from "react";
 
 interface VideoCardProps {
   channel?: Channel;
@@ -34,11 +35,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
           className="object-cover md:hover:scale-105 rounded-md max-w-[40rem] duration-150 transtion-all ease-in "
           src={video.thumbnailSrc}
           alt="thumbnail"
-          priority
-          placeholder="blur"
-          blurDataURL="/blur.svg"
-          layout="fill"
-          sizes="(max-width:820px) 100vw"
+          loading="lazy"
         />
       </div>
 
