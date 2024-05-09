@@ -1,3 +1,4 @@
+"use client";
 import { Channel, Video } from "@prisma/client";
 import axios from "axios";
 import { useEffect, useState } from "react";
