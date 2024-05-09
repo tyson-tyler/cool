@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 // Lazy-loaded components
 
-const About = () => {
+const About = async () => {
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>

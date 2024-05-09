@@ -5,7 +5,6 @@ import Link from "next/link";
 import Avatar, { AvatarSize } from "../Avatar";
 import { compactNumberFormat } from "@/utils/numUtils";
 import dayjs from "@/vendor/devjs";
-import { lazy } from "react";
 
 interface VideoCardProps {
   channel?: Channel;
