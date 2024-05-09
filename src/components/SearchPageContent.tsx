@@ -1,5 +1,3 @@
-"use client";
-import VideoCard from "@/components/shared/VideoCard";
 import { Channel, Video } from "@prisma/client";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -7,6 +5,7 @@ import toast from "react-hot-toast";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Loader } from "lucide-react";
 import Image from "next/image";
+import VideoCard from "./shared/VideoCard";
 
 export default function SearchPageContent() {
   const params = useSearchParams();
@@ -16,22 +15,35 @@ export default function SearchPageContent() {
   const router = useRouter();
 
   useEffect(() => {
-    axios
-      .get("/api/videos", { params: { searchQuery } })
+    const fetchVideos = async () => {
+      try {
+        const cachedData = sessionStorage.getItem("searchResults");
+        if (cachedData) {
+          setVideos(JSON.parse(cachedData));
+          setLoading(false);
+        } else {
+          const { data } = await axios.get("/api/videos", {
+            params: { searchQuery },
+          });
+          setVideos(data);
+          sessionStorage.setItem("searchResults", JSON.stringify(data));
+          setLoading(false);
+        }
+      } catch (error) {
+        toast.error("Failed to fetch videos");
+        setLoading(false);
+      }
+    };
 
-      .then((data) => {
-        setVideos(data.data as unknown as (Video & { channel: Channel })[]);
-      })
-      .catch(() => toast.error("No Result found"));
+    if (searchQuery) {
+      fetchVideos();
+    }
+
+    return () => {
+      // Clear cache on component unmount
+      sessionStorage.removeItem("searchResults");
+    };
   }, [searchQuery]);
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false); // Hide loader after 2000 milliseconds
-    }, 3000);
-
-    // Clear timeout on component unmount or when videos are loaded
-    return () => clearTimeout(timeout);
-  }, []);
 
   return (
     <div className="w-full relative mt-16 flex justify-center">
