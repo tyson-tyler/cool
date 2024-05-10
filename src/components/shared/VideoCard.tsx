@@ -40,13 +40,15 @@ const VideoCard: React.FC<VideoCardProps> = ({
       </div>
 
       <div className="flex gap-x-5 mt-4 flex-col">
-        <h3 className="font-semibold text-lg">{truncatedTitle}</h3>
         {channel ? (
-          <div className="flex gap-2 items-center ">
+          <div className="flex gap-2 items-center">
             <Avatar size={AvatarSize.medium} imageSrc={channel.imageSrc} />
-            <p className="text-gray-500 text-sm whitespace-nowrap">
-              {channel.name}
-            </p>
+            <div className="flex flex-col">
+              <h3 className="font-semibold text-lg">{truncatedTitle}</h3>
+              <p className="text-gray-500 text-sm whitespace-nowrap">
+                {channel.name}
+              </p>
+            </div>
           </div>
         ) : null}
         <p className="text-gray-500 text-sm  mt-2 mb-1">
