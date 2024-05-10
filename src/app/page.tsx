@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 
 import { Suspense, lazy } from "react";
 
@@ -12,8 +13,16 @@ export const metadata: Metadata = {
 };
 
 const Preloader = () => (
-  <div className="flex-center">
-    <div>Loading...</div>
+  <div className="flex justify-center items-center w-full h-screen bg-white dark:bg-gray-900">
+    <div>
+      <Image
+        src={"/logo1.svg"}
+        width={140}
+        height={140}
+        alt="hello"
+        className="animate-bounce"
+      />
+    </div>
   </div>
 );
 

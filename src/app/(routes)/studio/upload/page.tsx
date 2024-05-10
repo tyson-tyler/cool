@@ -12,7 +12,6 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useProtectedRoute } from "@/hooks/useProtectedRoutes";
 import Loader from "@/components/Loader";
-import LeftBar from "@/components/Leftbar";
 
 export default function UploadPage() {
   useProtectedRoute();

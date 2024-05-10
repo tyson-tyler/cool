@@ -1,10 +1,8 @@
 import getChannelById from "@/actions/getChannelById";
-import getCurrentSubscription from "@/actions/getCurrentSubscriptions";
 import getVideosByChannelId from "@/actions/getVideosByChannelId";
-import LeftBar from "@/components/Leftbar";
+
 import ChannelHeader from "@/components/channel/ChannelHeader";
-import VideoCard from "@/components/shared/VideoCard";
-import { Button } from "@/components/ui/button";
+
 import VideoTrack from "@/components/videotrack";
 
 interface ChannelPageProps {
@@ -19,7 +17,6 @@ export default async function ChannelPage({
   const { channelId } = params;
   const channel = await getChannelById({ channelId });
   const videos = await getVideosByChannelId({ channelId });
-  const subscriptions = await getCurrentSubscription();
   return channel ? (
     <>
       <div className="flex flex-col">
