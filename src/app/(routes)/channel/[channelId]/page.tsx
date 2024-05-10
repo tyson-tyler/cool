@@ -1,6 +1,6 @@
 import getChannelById from "@/actions/getChannelById";
+import getCurrentSubscription from "@/actions/getCurrentSubscriptions";
 import getVideosByChannelId from "@/actions/getVideosByChannelId";
-
 import ChannelHeader from "@/components/channel/ChannelHeader";
 
 import VideoTrack from "@/components/videotrack";
@@ -17,6 +17,7 @@ export default async function ChannelPage({
   const { channelId } = params;
   const channel = await getChannelById({ channelId });
   const videos = await getVideosByChannelId({ channelId });
+  const subscriptions = await getCurrentSubscription();
   return channel ? (
     <>
       <div className="flex flex-col">
