@@ -7,7 +7,7 @@ import LikeDisLikePage from "./LikeDisLikePage";
 import Link from "next/link";
 import Avatar, { AvatarSize } from "@/components/Avatar";
 import { compactNumberFormat } from "@/utils/numUtils";
-import SubscribeButton from "@/components/SubscribeButton";
+import SubscribeButton from "@/components/Sub";
 import { Button } from "@/components/ui/button";
 import LikeDisLikeButton from "../LikeDisLikeButton";
 
