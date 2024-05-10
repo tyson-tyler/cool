@@ -47,7 +47,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
         <video
           ref={videoRef}
           src={video.videoSrc}
-          className="object-cover md:hover:scale-105 rounded-md max-w-[40rem] duration-150 transtion-all ease-in"
+          className="object-cover md:hover:scale-105 rounded-md w-full max-w-[40rem] duration-150 transtion-all ease-in"
           autoPlay
           muted
           loop

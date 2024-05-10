@@ -1,19 +1,10 @@
 "use client";
 import React, { useContext } from "react";
-import {
-  Brush,
-  CirclePlus,
-  Eye,
-  FilmIcon,
-  Heart,
-  Home,
-  Upload,
-} from "lucide-react";
+import { Brush, CirclePlus, Eye, FilmIcon, Home } from "lucide-react";
 import Link from "next/link";
 
 import { HiMiniUserGroup } from "react-icons/hi2";
-import { PiArrowElbowLeftUpLight } from "react-icons/pi";
-import { TbEggCracked } from "react-icons/tb";
+
 import { CurrentChannelContext } from "@/context/CreateChannelContext";
 import { useRouter } from "next/navigation";
 import { CreateChannelModalContext } from "@/context/CreateChannelModelContext";
