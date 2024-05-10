@@ -1,6 +1,14 @@
 "use client";
 import React, { useContext } from "react";
-import { Brush, CirclePlus, Eye, Heart, Home, Upload } from "lucide-react";
+import {
+  Brush,
+  CirclePlus,
+  Eye,
+  FilmIcon,
+  Heart,
+  Home,
+  Upload,
+} from "lucide-react";
 import Link from "next/link";
 
 import { HiMiniUserGroup } from "react-icons/hi2";
@@ -20,6 +28,10 @@ const items = [
   {
     logo: <Eye />,
     url: "/creator",
+  },
+  {
+    logo: <FilmIcon />,
+    url: "/shorts",
   },
 
   {
