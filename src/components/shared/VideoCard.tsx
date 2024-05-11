@@ -36,6 +36,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
           alt="thumbnail"
           loading="lazy"
           fill
+          placeholder="blur"
+          blurDataURL="/blur.svg"
         />
       </div>
 
