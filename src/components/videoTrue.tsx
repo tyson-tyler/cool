@@ -1,11 +1,11 @@
 "use client";
 
 import { Channel, Video } from "@prisma/client";
-import Image from "next/image";
+
 import Link from "next/link";
 import Avatar, { AvatarSize } from "./Avatar";
 import { useRef } from "react";
-import LikeSubscribePage from "./video/LikeSubscribePage/LikeSubscribePage";
+
 import LikeDisLikeButton from "./LikeDisLikeButton";
 
 interface VideoCardProps {
