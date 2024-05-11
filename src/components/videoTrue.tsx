@@ -6,7 +6,7 @@ import Link from "next/link";
 import Avatar, { AvatarSize } from "./Avatar";
 import { useRef } from "react";
 import LikeSubscribePage from "./video/LikeSubscribePage/LikeSubscribePage";
-import LikeDisLikeButton from "./video/LikeDisLikeButton";
+import LikeDisLikeButton from "./LikeDisLikeButton";
 
 interface VideoCardProps {
   channel?: Channel;

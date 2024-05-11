@@ -8,7 +8,7 @@ import Avatar, { AvatarSize } from "@/components/Avatar";
 import { compactNumberFormat } from "@/utils/numUtils";
 import SubscribeButton from "@/components/Sub";
 import { Button } from "@/components/ui/button";
-import LikeDisLikeButton from "../LikeDisLikeButton";
+import LikeDisLikeButton from "../../LikeDisLikeButton";
 
 interface LikeSubscribePageProps {
   channel: Channel;

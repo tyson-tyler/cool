@@ -1,6 +1,6 @@
 "use client";
 
-import { useLikeDislike, LikeDislikeStatus } from "@/hooks/useLikeDislike";
+import { useLikeDislike, LikeDislikeStatus } from "@/lib/useLikeDislike";
 import { compactNumberFormat } from "@/utils/numUtils";
 import { Video } from "@prisma/client";
 import {
