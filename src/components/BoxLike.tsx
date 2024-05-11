@@ -19,9 +19,9 @@ const LikeDisLikeButton: React.FC<LikeDisLikeButtonProps> = ({ video }) => {
     videoId: video.id,
   });
   return (
-    <div className="flex  items-center gap-1 dark:bg-neutral-800 bg-gray-200 rounded-full px-3 py-2 dark:text-white text-black font-medium">
+    <div className="flex flex-col justify-center ml-3 mt-2 items-center gap-1 dark:bg-neutral-800 bg-gray-200 rounded-full px-3 py-2 dark:text-white text-black font-medium">
       <button
-        className="pr-3 border-r-2 border-neutral-600 flex items-center gap-3"
+        className="pr-3 flex-col   flex items-center gap-3"
         onClick={() => toogleLikeDislike("like")}
       >
         {likeDislikeStatus === LikeDislikeStatus.Liked ? (
@@ -30,13 +30,6 @@ const LikeDisLikeButton: React.FC<LikeDisLikeButtonProps> = ({ video }) => {
           <MdOutlineThumbUp className="h-6 w-6" />
         )}
         <p>{compactNumberFormat(video.likeCount)}</p>
-      </button>
-      <button className="pl-2" onClick={() => toogleLikeDislike("dislike")}>
-        {likeDislikeStatus === LikeDislikeStatus.Disliked ? (
-          <MdThumbDown className="w-6 h-6" />
-        ) : (
-          <MdOutlineThumbDown className="h-6 w-6" />
-        )}
       </button>
     </div>
   );

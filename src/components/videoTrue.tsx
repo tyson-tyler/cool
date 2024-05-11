@@ -57,15 +57,15 @@ const VideoCard: React.FC<VideoCardProps> = ({
         />
       </div>
 
-      <div className="flex gap-x-5 mt-[-40px] mb-15 flex-col justify-center items-center z-50 mb-40">
+      <div className="flex gap-x-5 mt-[-30px] mb-15 flex-col justify-center items-center z-50 mb-40">
         {channel ? (
-          <div className="flex gap-2 items-center z-20 dark:bg-neutral-800 bg-gray-100 text-black dark:text-white rounded-full p-4">
-            <div className="flex justify-center items-center w-full">
+          <div className="flex gap-2 items-center z-20 dark:bg-neutral-800 bg-gray-100 text-black dark:text-white rounded-full p-2">
+            <div>
               <LikeDisLikeButton video={video} />
             </div>
             <Avatar size={AvatarSize.medium} imageSrc={channel.imageSrc} />
             <div className="flex-col hidden sm:hidden lg:flex">
-              <h3 className="font-semibold text-lg">{truncatedTitle}</h3>
+              {/* <h3 className="font-semibold text-lg">{truncatedTitle}</h3> */}
               <p className="text-gray-500 text-sm whitespace-nowrap">
                 {channel.name}
               </p>
