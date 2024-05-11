@@ -15,14 +15,14 @@ interface LikeDisLikeButtonProps {
 }
 
 const LikeDisLikeButton: React.FC<LikeDisLikeButtonProps> = ({ video }) => {
-  const { likeDislikeStatus, toogleLikeDislike } = useLikeDislike({
+  const { likeDislikeStatus, toggleLikeDislike } = useLikeDislike({
     videoId: video.id,
   });
   return (
     <div className="flex  items-center gap-1 dark:bg-neutral-800 bg-gray-200 rounded-full px-3 py-2 dark:text-white text-black font-medium">
       <button
         className="pr-3 border-r-2 border-neutral-600 flex items-center gap-3"
-        onClick={() => toogleLikeDislike("like")}
+        onClick={() => toggleLikeDislike("like")}
       >
         {likeDislikeStatus === LikeDislikeStatus.Liked ? (
           <MdThumbUp className="w-6 h-6" />
@@ -31,7 +31,7 @@ const LikeDisLikeButton: React.FC<LikeDisLikeButtonProps> = ({ video }) => {
         )}
         <p>{compactNumberFormat(video.likeCount)}</p>
       </button>
-      <button className="pl-2" onClick={() => toogleLikeDislike("dislike")}>
+      <button className="pl-2" onClick={() => toggleLikeDislike("dislike")}>
         {likeDislikeStatus === LikeDislikeStatus.Disliked ? (
           <MdThumbDown className="w-6 h-6" />
         ) : (
