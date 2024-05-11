@@ -32,7 +32,7 @@ const items = [
   {
     logo: <FilmIcon />,
     text: "Clips",
-    url: "shorts",
+    url: "/shorts",
   },
 
   {
