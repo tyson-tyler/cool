@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Avatar, { AvatarSize } from "./Avatar";
 import { useRef } from "react";
+import LikeSubscribePage from "./video/LikeSubscribePage/LikeSubscribePage";
+import LikeDisLikeButton from "./video/LikeDisLikeButton";
 
 interface VideoCardProps {
   channel?: Channel;
@@ -57,7 +59,10 @@ const VideoCard: React.FC<VideoCardProps> = ({
 
       <div className="flex gap-x-5 mt-[-40px] mb-15 flex-col justify-center items-center z-50 mb-40">
         {channel ? (
-          <div className="flex gap-2 items-center z-20 dark:bg-gray-600 bg-gray-100 text-black dark:text-white rounded-full p-4">
+          <div className="flex gap-2 items-center z-20 dark:bg-neutral-800 bg-gray-100 text-black dark:text-white rounded-full p-4">
+            <div className="flex justify-center items-center w-full">
+              <LikeDisLikeButton video={video} />
+            </div>
             <Avatar size={AvatarSize.medium} imageSrc={channel.imageSrc} />
             <div className="flex-col hidden sm:hidden lg:flex">
               <h3 className="font-semibold text-lg">{truncatedTitle}</h3>
