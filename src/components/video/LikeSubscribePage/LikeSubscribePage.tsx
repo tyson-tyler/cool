@@ -3,7 +3,6 @@
 import { CurrentUserContext } from "@/context/CurrentUserContext";
 import { Channel, Video } from "@prisma/client";
 import { useContext } from "react";
-import LikeDisLikePage from "./LikeDisLikePage";
 import Link from "next/link";
 import Avatar, { AvatarSize } from "@/components/Avatar";
 import { compactNumberFormat } from "@/utils/numUtils";
@@ -48,9 +47,9 @@ const LikeSubscribePage: React.FC<LikeSubscribePageProps> = ({
           )}
         </div>
       </div>
-      {/* <div className="flex justify-center items-center w-full">
-        <LikeDisLikePage video={video} />
-      </div> */}
+      <div className="flex justify-center items-center w-full">
+        <LikeDisLikeButton video={video} />
+      </div>
     </>
   );
 };

@@ -36,7 +36,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       href={`/video/${video.id}`}
       prefetch={true}
     >
-      <div className="relative w-full flex justify-center  lg:h-[550px] aspect-video">
+      <div className="relative w-full flex justify-center lg:justify-center  lg:h-[550px] aspect-video">
         {/* <Image
           className="object-cover md:hover:scale-105 rounded-md max-w-[40rem] duration-150 transtion-all ease-in "
           src={video.thumbnailSrc}
@@ -47,7 +47,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
         <video
           ref={videoRef}
           src={video.videoSrc}
-          className="object-cover md:hover:scale-105 rounded-md w-full max-w-[40rem] duration-150 transtion-all ease-in"
+          className="object-cover md:hover:scale-105 rounded-md w-full max-w-[40rem] h-[500px] sm:h-[500px] md:h-auto duration-150 transtion-all ease-in"
           autoPlay
           muted
           loop
@@ -59,7 +59,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
         {channel ? (
           <div className="flex gap-2 items-center z-20 dark:bg-gray-600 bg-gray-100 text-black dark:text-white rounded-full p-4">
             <Avatar size={AvatarSize.medium} imageSrc={channel.imageSrc} />
-            <div className="flex flex-col">
+            <div className="flex-col hidden sm:hidden lg:flex">
               <h3 className="font-semibold text-lg">{truncatedTitle}</h3>
               <p className="text-gray-500 text-sm whitespace-nowrap">
                 {channel.name}

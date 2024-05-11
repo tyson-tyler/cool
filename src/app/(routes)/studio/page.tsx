@@ -1,5 +1,6 @@
 import getCurrentChannel from "@/actions/getCurrentChannel";
 import getVideosByChannelId from "@/actions/getVideosByChannelId";
+import Avatar from "@/components/Avatar";
 import AnalayticSummary from "@/components/studio/AnalayticSummary";
 import VideoDetailCard from "@/components/studio/VideoDetailCard";
 
@@ -16,8 +17,9 @@ const page = async () => {
   const videos = await getVideosByChannelId({ channelId: currentChannel?.id });
   return (
     <div className="w-full">
-      <div className="flex flex-col w-full h-full p-8">
+      <div className="flex flex-col w-full h-full mt-3 lg:mt-6">
         <AnalayticSummary videos={videos} />
+
         <div className="flex flex-col gap-4 mt-8">
           <h2 className="text-2xl text-center font-semibold">Videos</h2>
           <div className="py-5 grid-container">
