@@ -4,6 +4,7 @@ import { compactNumberFormat } from "@/utils/numUtils";
 import { Video } from "@prisma/client";
 import dayjs from "@/vendor/devjs";
 import { useState } from "react";
+import Sharearea from "../Sharearea";
 
 interface DescriptionProps {
   video: Video;

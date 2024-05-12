@@ -4,9 +4,10 @@ import { Channel, Video } from "@prisma/client";
 
 import Link from "next/link";
 import Avatar, { AvatarSize } from "./Avatar";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import LikeDisLikeButton from "./LikeDisLikeButton";
+import DialogDemo from "./Come";
 
 interface VideoCardProps {
   channel?: Channel;
@@ -22,9 +23,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
   video,
   includeDescription = false,
 }) => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const truncatedTitle =
     video.title.length > 20 ? video.title.slice(0, 20) + "..." : video.title;
-
+  const handleVideoLoaded = () => {
+    setVideoLoaded(true);
+  };
   const videoRef = useRef<HTMLVideoElement>(null);
   const playVideoOnFocus = () => {
     if (videoRef.current) {
@@ -46,14 +50,16 @@ const VideoCard: React.FC<VideoCardProps> = ({
           loading="lazy"
           fill
         /> */}
+
         <video
           ref={videoRef}
           src={video.videoSrc}
-          className="object-cover md:hover:scale-105 rounded-md w-full max-w-[40rem] h-[500px] sm:h-[500px] md:h-auto duration-150 transtion-all ease-in"
+          className="object-cover md:hover:scale-105 rounded-md w-full max-w-[40rem] h-[600px] sm:h-[600px] md:h-auto duration-150 transtion-all ease-in"
           autoPlay
           muted
           loop
           onFocus={playVideoOnFocus}
+          onLoadedData={handleVideoLoaded}
         />
       </div>
 
@@ -69,6 +75,9 @@ const VideoCard: React.FC<VideoCardProps> = ({
               <p className="text-gray-500 text-sm whitespace-nowrap">
                 {channel.name}
               </p>
+            </div>
+            <div>
+              <DialogDemo video={video} />
             </div>
           </div>
         ) : null}

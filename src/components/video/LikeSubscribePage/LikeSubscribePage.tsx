@@ -9,6 +9,8 @@ import { compactNumberFormat } from "@/utils/numUtils";
 import SubscribeButton from "@/components/Sub";
 import { Button } from "@/components/ui/button";
 import LikeDisLikeButton from "../../LikeDisLikeButton";
+import DialogDemo from "@/components/Sharearea";
+// import Sharearea from "@/components/Sharearea";
 
 interface LikeSubscribePageProps {
   channel: Channel;
@@ -47,8 +49,10 @@ const LikeSubscribePage: React.FC<LikeSubscribePageProps> = ({
           )}
         </div>
       </div>
-      <div className="flex justify-center items-center w-full">
+      <div className="flex justify-evenly mt-5 items-center w-full">
         <LikeDisLikeButton video={video} />
+        {/* <Sharearea /> */}
+        <DialogDemo video={video} />
       </div>
     </>
   );
