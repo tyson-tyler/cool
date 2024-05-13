@@ -11,15 +11,15 @@ import { CreateChannelModalContext } from "@/context/CreateChannelModelContext";
 import { MdAccountCircle } from "react-icons/md";
 
 const items = [
-  // {
-  //   logo: <Home />,
+  {
+    logo: <Home />,
 
-  //   url: "/about",
-  // },
-  // {
-  //   logo: <Eye />,
-  //   url: "/creator",
-  // },
+    url: "/about",
+  },
+  {
+    logo: <Eye />,
+    url: "/creator",
+  },
   {
     logo: <FilmIcon />,
     url: "/shorts",
