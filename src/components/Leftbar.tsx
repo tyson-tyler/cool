@@ -19,16 +19,16 @@ import { CurrentChannelContext } from "@/context/CreateChannelContext";
 import SignInButton from "./UserOptions/SignInButton";
 
 const items = [
-  {
-    logo: <Home />,
-    text: "Home",
-    url: "/about",
-  },
-  {
-    logo: <Eye />,
-    text: "Popular",
-    url: "/creator",
-  },
+  // {
+  //   logo: <Home />,
+  //   text: "Home",
+  //   url: "/about",
+  // },
+  // {
+  //   logo: <Eye />,
+  //   text: "Popular",
+  //   url: "/creator",
+  // },
   {
     logo: <FilmIcon />,
     text: "Clips",
