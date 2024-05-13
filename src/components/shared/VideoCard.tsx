@@ -5,6 +5,8 @@ import Link from "next/link";
 import Avatar, { AvatarSize } from "../Avatar";
 import { compactNumberFormat } from "@/utils/numUtils";
 import dayjs from "@/vendor/devjs";
+import { Suspense } from "react";
+import SuspenseImage from "./SuspenseImage";
 
 interface VideoCardProps {
   channel?: Channel;
@@ -30,15 +32,17 @@ const VideoCard: React.FC<VideoCardProps> = ({
       prefetch={true}
     >
       <div className="relative w-full flex justify-center md:h-[400px] lg:h-[550px] sm:h-[400px] h-[400px] aspect-video">
-        <Image
-          className="object-cover md:hover:scale-105 rounded-md max-w-[40rem] duration-150 transtion-all ease-in "
-          src={video.thumbnailSrc}
-          alt="thumbnail"
-          loading="lazy"
-          fill
-          placeholder="blur"
-          blurDataURL="/blur.svg"
-        />
+        <Suspense fallback={"loding"}>
+          <Image
+            className="object-cover md:hover:scale-105 rounded-md max-w-[40rem] duration-150 transtion-all ease-in "
+            src={video.thumbnailSrc}
+            alt="thumbnail"
+            loading="lazy"
+            fill
+            placeholder="blur"
+            blurDataURL="/blur.svg"
+          />
+        </Suspense>
       </div>
 
       <div className="flex gap-x-5 mt-4 flex-col">
