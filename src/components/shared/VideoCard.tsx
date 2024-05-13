@@ -29,6 +29,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
     <Link
       className="m-auto w-full block mt-13 mb-3"
       href={`/video/${video.id}`}
+      prefetch
     >
       <div className="relative w-full flex justify-center md:h-[400px] lg:h-[550px] sm:h-[400px] h-[400px] aspect-video">
         <Suspense fallback={"loding"}>
