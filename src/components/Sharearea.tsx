@@ -8,14 +8,11 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Video } from "@prisma/client";
-import { Facebook, Instagram, Share2, Twitch, Twitter } from "lucide-react";
-import { BiLogoDiscord } from "react-icons/bi";
-import { MdWhatsapp } from "react-icons/md";
-import { PiDiscordLogo, PiPinterestLogo } from "react-icons/pi";
+import { Share2 } from "lucide-react";
+
 import {
   FacebookIcon,
   FacebookShareButton,
-  InstapaperShareButton,
   LinkedinIcon,
   LinkedinShareButton,
   PinterestIcon,

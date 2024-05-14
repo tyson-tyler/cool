@@ -60,105 +60,108 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
 
   return (
     <div className="relative sm:flex sm:flex-col sm:items-center lg:flex lg:items-start mr-[28px] max-md:hidden mt-10 ml-[28px]">
-      {currentUser ? (
-        <div>
-          {items.map((item, index) => (
-            <Link
-              href={item.url}
-              className="flex items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
-              key={index}
-              prefetch={true}
-            >
-              <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-                {item.logo}
-              </div>
-              <span className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
-                {" "}
-                {item.text}
-              </span>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <div className="flex flex-col">
-          <span className="lg:text-md md:hidden font-bold usespan mb-2">
-            Please Sign In
-          </span>
-          <SignInButton />
-        </div>
-      )}
+      <div>
+        {items.map((item, index) => (
+          <Link
+            href={item.url}
+            className="flex items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+            key={index}
+            prefetch={true}
+          >
+            <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
+              {item.logo}
+            </div>
+            <span className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
+              {" "}
+              {item.text}
+            </span>
+          </Link>
+        ))}
+      </div>
 
       {/* {currentChannel ? <div>
         
       </div> : null} */}
-
-      <div
-        onClick={() => {
-          if (!currentChannel) {
-            createChannelModal?.onOpen();
-          } else {
-            router.push(`/channel/${currentChannel.id}`);
-          }
-        }}
-        className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
-      >
-        <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-          <MdAccountCircle className="w-7 h-7" />
-        </div>
-        <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
-          Channel
-        </div>
-      </div>
-      <div
-        onClick={() => {
-          if (!currentChannel) {
-            createChannelModal?.onOpen();
-          } else {
-            router.push(`/studio`);
-          }
-        }}
-        className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
-      >
-        <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-          <Brush className="w-7 h-7" />
-        </div>
-        <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
-          Studio
-        </div>
-      </div>
-      <div
-        onClick={() => {
-          if (!currentChannel) createChannelModal?.onOpen();
-          else router.push("/studio/upload");
-        }}
-        className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
-      >
-        <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-          <CirclePlus className="w-7 h-7" />
-        </div>
-        <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
-          Upload
-        </div>
-      </div>
       {currentUser ? (
-        <div className="pt-3">
-          {subscribedChannels.map((subscribedChannels) => {
-            return (
-              <MenuItems
-                channel={subscribedChannels}
-                key={subscribedChannels.id}
-                label={subscribedChannels.name}
-                logo={
-                  <Avatar
-                    imageSrc={subscribedChannels.imageSrc}
-                    size={AvatarSize.extra}
-                  />
-                }
-              />
-            );
-          })}
+        <div>
+          <div
+            onClick={() => {
+              if (!currentChannel) {
+                createChannelModal?.onOpen();
+              } else {
+                router.push(`/channel/${currentChannel.id}`);
+              }
+            }}
+            className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+          >
+            <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
+              <MdAccountCircle className="w-7 h-7" />
+            </div>
+            <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
+              Channel
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              if (!currentChannel) {
+                createChannelModal?.onOpen();
+              } else {
+                router.push(`/studio`);
+              }
+            }}
+            className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+          >
+            <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
+              <Brush className="w-7 h-7" />
+            </div>
+            <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
+              Studio
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              if (!currentChannel) createChannelModal?.onOpen();
+              else router.push("/studio/upload");
+            }}
+            className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+          >
+            <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
+              <CirclePlus className="w-7 h-7" />
+            </div>
+            <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
+              Upload
+            </div>
+          </div>
+          <div className="pt-3">
+            {subscribedChannels.map((subscribedChannels) => {
+              return (
+                <MenuItems
+                  channel={subscribedChannels}
+                  key={subscribedChannels.id}
+                  label={subscribedChannels.name}
+                  logo={
+                    <Avatar
+                      imageSrc={subscribedChannels.imageSrc}
+                      size={AvatarSize.extra}
+                    />
+                  }
+                />
+              );
+            })}
+          </div>
         </div>
-      ) : null}
+      ) : (
+        <div>
+          <div className="flex flex-col">
+            <span className="lg:text-md md:hidden font-bold usespan mb-2">
+              Please Sign In
+            </span>
+            <div className="flex justify-center items-center ml-3 mt-5">
+              <SignInButton />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

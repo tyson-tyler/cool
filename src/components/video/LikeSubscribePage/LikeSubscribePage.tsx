@@ -10,6 +10,7 @@ import SubscribeButton from "@/components/Sub";
 import { Button } from "@/components/ui/button";
 import LikeDisLikeButton from "../../LikeDisLikeButton";
 import DialogDemo from "@/components/Sharearea";
+import Report from "@/components/report";
 // import Sharearea from "@/components/Sharearea";
 
 interface LikeSubscribePageProps {
@@ -53,6 +54,7 @@ const LikeSubscribePage: React.FC<LikeSubscribePageProps> = ({
         <LikeDisLikeButton video={video} />
         {/* <Sharearea /> */}
         <DialogDemo video={video} />
+        <Report video={video} />
       </div>
     </>
   );
