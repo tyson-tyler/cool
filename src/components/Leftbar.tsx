@@ -59,7 +59,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
   const currentChannel = useContext(CurrentChannelContext);
 
   return (
-    <div className="relative sm:flex sm:flex-col sm:items-center lg:flex lg:items-start mr-[28px] max-md:hidden mt-10 ml-[28px]">
+    <div className="relative sm:flex sm:flex-col sm:items-center lg:flex lg:items-start lg:mr-[28px] max-md:hidden mt-10 lg:ml-[28px]">
       <div>
         {items.map((item, index) => (
           <Link
