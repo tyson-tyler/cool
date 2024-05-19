@@ -68,9 +68,9 @@ const About = async () => {
           </p>
           <div className="flex justify-center items-center mt-5 gap-3">
             <Link href={"/about"}>
-              <Button className="p-5 justify-center flex" size={"lg"}>
+              {/* <Button className="p-5 justify-center flex" size={"lg"}>
                 Try it Now
-              </Button>
+              </Button> */}
             </Link>
             <a href={"https://inter-main.vercel.app"}>
               <Button

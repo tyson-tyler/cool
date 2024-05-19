@@ -31,7 +31,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       href={`/video/${video.id}`}
       prefetch
     >
-      <div className="relative w-full flex justify-center md:h-[400px] lg:h-[550px] sm:h-[400px] h-[400px] aspect-video">
+      <div className="relative w-full flex justify-center  md:h-[500px] lg:h-[550px] sm:h-[500px] h-[400px] aspect-video">
         <Suspense fallback={"loding"}>
           <Image
             className="object-cover md:hover:scale-105 rounded-md max-w-[40rem] duration-150 transtion-all ease-in "
