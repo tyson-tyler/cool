@@ -11,7 +11,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useProtectedRoute } from "@/hooks/useProtectedRoutes";
-import Loader from "@/components/Loader";
+import { Loader } from "lucide-react";
 
 export default function UploadPage() {
   useProtectedRoute();
@@ -90,7 +90,7 @@ export default function UploadPage() {
               {isLoading ? (
                 <div className="flex mr-2">
                   {" "}
-                  <Loader />
+                  <Loader className="mr-2 animate-spin w-5 h-5" />
                   Publishing
                 </div>
               ) : (
