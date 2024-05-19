@@ -4,8 +4,14 @@ import SignInButton from "./SignInButton";
 import { CurrentUserContext } from "@/context/CurrentUserContext";
 import Avatar, { AvatarSize } from "../Avatar";
 import UserMenu from "../UserMenu";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 const UserOptions = () => {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/sign");
+  };
   const currentUser = useContext(CurrentUserContext);
 
   const [menuOpen, setMenuOpen] = useState(false);

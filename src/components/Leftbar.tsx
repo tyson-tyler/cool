@@ -12,7 +12,7 @@ import { PiArrowElbowLeftUpLight } from "react-icons/pi";
 import Avatar, { AvatarSize } from "./Avatar";
 import MenuItems from "./MenuItems";
 import { TiMediaFastForwardOutline } from "react-icons/ti";
-import { MdAccountCircle, MdWifiChannel } from "react-icons/md";
+import { MdAccountCircle, MdCreate, MdWifiChannel } from "react-icons/md";
 import { CreateChannelModalContext } from "@/context/CreateChannelModelContext";
 import { useRouter } from "next/navigation";
 import { CurrentChannelContext } from "@/context/CreateChannelContext";
@@ -106,6 +106,23 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
               if (!currentChannel) {
                 createChannelModal?.onOpen();
               } else {
+                router.push(`/create`);
+              }
+            }}
+            className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+          >
+            <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
+              <MdCreate className="w-7 h-7" />
+            </div>
+            <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
+              Create
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              if (!currentChannel) {
+                createChannelModal?.onOpen();
+              } else {
                 router.push(`/studio`);
               }
             }}
@@ -156,7 +173,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
             <span className="lg:text-md md:hidden font-bold usespan mb-2">
               Please Sign In
             </span>
-            <div className="flex justify-center items-center ml-3 mt-5">
+            <div className="flex justify-center items-center ml-5 mt-5">
               <SignInButton />
             </div>
           </div>

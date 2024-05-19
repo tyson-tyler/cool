@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Suspense, lazy } from "react";
 import { SkeletonCard } from "@/components/Sketon";
+import Shift from "./Shift";
 
 // export const metadata: Metadata = {
 //   title: {
@@ -61,7 +62,7 @@ const About = async () => {
             <span className="usespan text-center ml-2">Ai Video</span>
           </h1>
 
-          <p className="desc text-center text-gray-600 mt-5">
+          <p className="desc text-center text-gray-600 mt-5 px-3">
             Myaimix is an open-source Ai Video & Image watch and create your own
             .
           </p>
@@ -81,6 +82,7 @@ const About = async () => {
               </Button>
             </a>
           </div>
+          <Shift />
         </section>
       )}
     </Suspense>
