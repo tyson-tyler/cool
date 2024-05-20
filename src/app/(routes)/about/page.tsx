@@ -20,7 +20,7 @@ export default async function Home() {
         <LeftBar subscribedChannels={subscriptions} />
       </div>
       <Suspense fallback={<div>Loading...</div>}>
-        <div className="basis-[85%] sm:mb-[100px] lg:mb-[0px] gap-x-10 gap-y-10 mt-5 justify-center grid-container lg:mr-5">
+        {/* <div className="basis-[85%] sm:mb-[100px] lg:mb-[0px] gap-x-10 gap-y-10 mt-5 justify-center grid-container lg:mr-5">
           {trendingVideos
             ? trendingVideos.map((trendingVideo) => {
                 return (
@@ -33,7 +33,7 @@ export default async function Home() {
                 );
               })
             : "No Video"}
-        </div>
+        </div> */}
       </Suspense>
     </div>
   );
