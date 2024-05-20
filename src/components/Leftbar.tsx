@@ -1,52 +1,27 @@
 "use client";
 import { CurrentUserContext } from "@/context/CurrentUserContext";
 import { Channel } from "@prisma/client";
-import { Brush, CirclePlus, Eye, FilmIcon, Home } from "lucide-react";
-import Link from "next/link";
+import {
+  Book,
+  Brush,
+  CirclePlus,
+  EyeIcon,
+  FilmIcon,
+  HomeIcon,
+  UsersRound,
+} from "lucide-react";
 
 import React, { useContext } from "react";
 
-import { HiMiniUserGroup } from "react-icons/hi2";
-import { PiArrowElbowLeftUpLight } from "react-icons/pi";
-
 import Avatar, { AvatarSize } from "./Avatar";
 import MenuItems from "./MenuItems";
-import { TiMediaFastForwardOutline } from "react-icons/ti";
+
 import { MdAccountCircle, MdCreate, MdWifiChannel } from "react-icons/md";
 import { CreateChannelModalContext } from "@/context/CreateChannelModelContext";
 import { useRouter } from "next/navigation";
 import { CurrentChannelContext } from "@/context/CreateChannelContext";
 import SignInButton from "./UserOptions/SignInButton";
 
-const items = [
-  {
-    logo: <Home />,
-    text: "Home",
-    url: "/about",
-  },
-  {
-    logo: <Eye />,
-    text: "Popular",
-    url: "/creator",
-  },
-  {
-    logo: <FilmIcon />,
-    text: "Clips",
-    url: "/shorts",
-  },
-
-  {
-    logo: <HiMiniUserGroup />,
-    text: "Communties",
-    url: "https://inter-main.vercel.app",
-    target: "_blank",
-  },
-  {
-    logo: <TiMediaFastForwardOutline />,
-    text: "About",
-    url: "/",
-  },
-];
 interface SideBarProps {
   subscribedChannels: Channel[];
 }
@@ -60,23 +35,70 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
 
   return (
     <div className="relative sm:flex sm:flex-col sm:items-center lg:flex lg:items-start lg:mr-[28px] md:mr-[20px] max-md:hidden mt-10 lg:ml-[28px]">
-      <div>
-        {items.map((item, index) => (
-          <Link
-            href={item.url}
-            className="flex items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
-            key={index}
-            prefetch={true}
-          >
-            <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-              {item.logo}
-            </div>
-            <span className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
-              {" "}
-              {item.text}
-            </span>
-          </Link>
-        ))}
+      <div
+        onClick={() => {
+          router.push(`/about`);
+        }}
+        className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+      >
+        <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
+          <HomeIcon className="w-7 h-7" />
+        </div>
+        <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
+          Home
+        </div>
+      </div>
+      <div
+        onClick={() => {
+          router.push(`/creator`);
+        }}
+        className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+      >
+        <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
+          <EyeIcon className="w-7 h-7" />
+        </div>
+        <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
+          Popular
+        </div>
+      </div>
+      <div
+        onClick={() => {
+          router.push(`/shorts`);
+        }}
+        className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+      >
+        <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
+          <FilmIcon className="w-7 h-7" />
+        </div>
+        <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
+          Clip
+        </div>
+      </div>
+      <div
+        onClick={() => {
+          router.push(`https://inter-main.vercel.app/`);
+        }}
+        className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+      >
+        <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
+          <UsersRound className="w-7 h-7" />
+        </div>
+        <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
+          Community
+        </div>
+      </div>
+      <div
+        onClick={() => {
+          router.push(`/`);
+        }}
+        className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+      >
+        <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
+          <Book className="w-7 h-7" />
+        </div>
+        <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
+          About
+        </div>
       </div>
 
       {/* {currentChannel ? <div>
@@ -101,7 +123,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
               Channel
             </div>
           </div>
-          <div
+          {/* <div
             onClick={() => {
               if (!currentChannel) {
                 createChannelModal?.onOpen();
@@ -117,7 +139,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
             <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
               Create
             </div>
-          </div>
+          </div> */}
           <div
             onClick={() => {
               if (!currentChannel) {
