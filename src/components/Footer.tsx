@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Brush, CirclePlus, Eye, FilmIcon, Home } from "lucide-react";
 import Link from "next/link";
 
@@ -37,6 +37,16 @@ const Footer = () => {
   const router = useRouter();
 
   const currentChannel = useContext(CurrentChannelContext);
+  useEffect(() => {
+    // Prefetch the about page on component mount
+    router.prefetch("/about");
+    router.prefetch("/creator");
+    router.prefetch("/shorts");
+    router.prefetch("/");
+    router.prefetch(`/channel/${currentChannel?.id}`);
+    router.prefetch("/studio");
+    router.prefetch("/studio/upload");
+  }, [router]);
 
   return (
     <div

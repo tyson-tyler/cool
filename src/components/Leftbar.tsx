@@ -11,7 +11,7 @@ import {
   UsersRound,
 } from "lucide-react";
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import Avatar, { AvatarSize } from "./Avatar";
 import MenuItems from "./MenuItems";
@@ -32,6 +32,16 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
   const router = useRouter();
 
   const currentChannel = useContext(CurrentChannelContext);
+  useEffect(() => {
+    // Prefetch the about page on component mount
+    router.prefetch("/about");
+    router.prefetch("/creator");
+    router.prefetch("/shorts");
+    router.prefetch("/");
+    router.prefetch(`/channel/${currentChannel?.id}`);
+    router.prefetch("/studio");
+    router.prefetch("/studio/upload");
+  }, [router]);
 
   return (
     <div className="relative sm:flex sm:flex-col sm:items-center lg:flex lg:items-start lg:mr-[28px] md:mr-[20px] max-md:hidden mt-10 lg:ml-[28px]">
