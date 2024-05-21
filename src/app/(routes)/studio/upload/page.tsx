@@ -56,6 +56,7 @@ export default function UploadPage() {
       .post("/api/videos", data)
       .then(() => {
         toast.success("Video is Public");
+        router.push(`/video/${videoId}`);
         router.push("/about");
       })
       .catch(() => toast.error("something went wrong"))
