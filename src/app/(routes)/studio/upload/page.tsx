@@ -57,6 +57,7 @@ export default function UploadPage() {
       .then(() => {
         toast.success("Video is Public");
         router.push("/studio");
+        router.refresh();
       })
       .catch(() => toast.error("something went wrong"))
       .finally(() => setIsLoading(false));
