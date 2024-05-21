@@ -1,7 +1,7 @@
 "use client";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Avatar, { AvatarSize } from "../Avatar";
-import Button from "../shared/Button";
+import { Button } from "../ui/button";
 import { useContext, useState } from "react";
 import Input from "../shared/Input";
 import axios from "axios";
@@ -62,7 +62,7 @@ const CreateChannelModel = () => {
           <div className="flex flex-col items-center py-4 gap-5">
             <Avatar size={AvatarSize.large} imageSrc={imageSrc} />
             <MediaUpload onChange={handleImageUpload}>
-              <Button type="primary" className="p-2">
+              <Button className="p-2" variant={"ghost"}>
                 Upload Image
               </Button>
             </MediaUpload>
@@ -91,17 +91,13 @@ const CreateChannelModel = () => {
           </div>
           <div className="p-2 border-t border-gray-600 flex justify-end gap-3">
             <Button
-              type="secondary"
+              variant={"ghost"}
               className="p-2"
               onClick={createChannelModal.onClose}
             >
               Cancel
             </Button>
-            <Button
-              type="primary"
-              className="p-2"
-              onClick={handleSubmit(onSubmit)}
-            >
+            <Button className="p-2" onClick={handleSubmit(onSubmit)}>
               Create Channel
             </Button>
           </div>

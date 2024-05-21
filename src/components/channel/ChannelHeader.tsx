@@ -6,7 +6,7 @@ import { useContext } from "react";
 import Avatar, { AvatarSize } from "../Avatar";
 import { compactNumberFormat } from "@/utils/numUtils";
 import Link from "next/link";
-import Button from "../shared/Button";
+import { Button } from "../ui/button";
 import SubscribeButton from "../SubscribeButton";
 
 interface ChannelHeaderProps {
@@ -42,10 +42,7 @@ const ChannelHeader: React.FC<ChannelHeaderProps> = ({
       </div>
       {channel.userId === currentUser?.id ? (
         <Link href={"/studio"} prefetch={true}>
-          <Button
-            type="primary"
-            className="p-2 hover:opacity-70 cursor-pointer"
-          >
+          <Button className="p-2 hover:opacity-70 cursor-pointer">
             Mange Videos
           </Button>
         </Link>

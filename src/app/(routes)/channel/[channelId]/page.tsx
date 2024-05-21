@@ -20,19 +20,23 @@ export default async function ChannelPage({
   const subscriptions = await getCurrentSubscription();
   return channel ? (
     <>
-      <div className="flex flex-col">
-        <ChannelHeader channel={channel} videoCount={videos.length} />
+      <div className="flex flex-col mr-10 ml-5">
+        <div>
+          <div className="flex flex-col">
+            <ChannelHeader channel={channel} videoCount={videos.length} />
 
-        <div className=" border-b-2 border-b-gray-500">
-          <div className="text-center  py-2 w-full mx-auto border-b-neutral-200">
-            Videos
+            <div className=" border-b-2 border-b-gray-500">
+              <div className="text-center  py-2 w-full mx-auto border-b-neutral-200">
+                Videos
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="py-6 px-6 gap-4 flex flex-wrap justify-center items-center">
-        {videos.map((video) => (
-          <VideoTrack key={video.id} video={video} />
-        ))}
+        <div className="py-6 px-6 gap-4 flex flex-wrap justify-center items-center">
+          {videos.map((video) => (
+            <VideoTrack key={video.id} video={video} />
+          ))}
+        </div>
       </div>
     </>
   ) : (

@@ -8,7 +8,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Popular",
+    absolute: "Clips",
   },
 };
 export default async function Home() {
