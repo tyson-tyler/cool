@@ -1,6 +1,6 @@
 "use client";
 
-import MediaUpload from "@/components/MediaUpload";
+import MediaUpload from "@/components/PhotoUpload";
 import TextArea from "@/components/shared/TextArea";
 import Image from "next/image";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
