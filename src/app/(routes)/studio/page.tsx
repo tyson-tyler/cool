@@ -1,10 +1,11 @@
 import getCurrentChannel from "@/actions/getCurrentChannel";
 import getVideosByChannelId from "@/actions/getVideosByChannelId";
-import Avatar from "@/components/Avatar";
+import Avatar, { AvatarSize } from "@/components/Avatar";
 import AnalayticSummary from "@/components/studio/AnalayticSummary";
 import VideoDetailCard from "@/components/studio/VideoDetailCard";
 
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: {
@@ -14,10 +15,20 @@ export const metadata: Metadata = {
 
 const page = async () => {
   const currentChannel = await getCurrentChannel();
+
   const videos = await getVideosByChannelId({ channelId: currentChannel?.id });
   return (
     <div className="w-full">
-      <div className="flex flex-col w-full h-full mt-3 lg:mt-6">
+      <div className="flex justify-center items-center mt-40">
+        <Image
+          src={`${currentChannel?.imageSrc}`}
+          width={80}
+          height={80}
+          className=""
+          alt="hello"
+        />
+      </div>
+      <div className="flex flex-col w-full h-full">
         <AnalayticSummary videos={videos} />
 
         <div className="flex flex-col gap-4 mt-8">
