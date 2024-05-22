@@ -64,7 +64,6 @@ export default function SearchPageContent() {
               isVertical={false}
               video={video}
               channel={video.channel}
-              includeDescription
             />
           ))
         ) : (

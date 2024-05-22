@@ -5,6 +5,7 @@ import getCurrentSubscription from "@/actions/getCurrentSubscriptions";
 
 import { Metadata } from "next";
 import { Suspense } from "react";
+import VideoTrack from "@/components/videotrack";
 
 export const metadata: Metadata = {
   title: {
