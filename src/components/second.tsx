@@ -34,10 +34,10 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
   const currentChannel = useContext(CurrentChannelContext);
   useEffect(() => {
     // Prefetch the about page on component mount
-    router.prefetch("/about");
+    router.prefetch("/");
     router.prefetch("/creator");
     router.prefetch("/shorts");
-    router.prefetch("/");
+    router.prefetch("/about");
     router.prefetch(`/channel/${currentChannel?.id}`);
     router.prefetch("/studio");
     router.prefetch("/studio/upload");

@@ -15,7 +15,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
     <div
       className={`flex items-center  mt-5 mb-5  ${
         round && "rounded-md"
-      } px-2 transition hover:scale-95 cursor-pointer dark:bg-gray-800 dark:text-white bg-white text-black`}
+      } px-2 transition hover:scale-95 cursor-pointer dark:bg-gray-900 dark:text-white bg-white text-black`}
       onClick={onClick}
     >
       {logo}
