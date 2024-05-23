@@ -1,7 +1,7 @@
 import getChannelById from "@/actions/getChannelById";
 import getCurrentSubscription from "@/actions/getCurrentSubscriptions";
 import getVideosByChannelId from "@/actions/getVideosByChannelId";
-import LeftBar from "@/components/Leftbar";
+import LeftBar from "@/components/second";
 import ChannelHeader from "@/components/channel/ChannelHeader";
 
 import VideoTrack from "@/components/videotrack";
@@ -22,7 +22,7 @@ export default async function ChannelPage({
   return channel ? (
     <>
       <div className="flex">
-        <div className="sm:hidden md:flex flex flex-between md:mr-0 mt-12 md:ml-5 lg:ml-0">
+        <div className="sm:hidden border-r border-gray-500 md:flex flex flex-between md:mr-0 mt-12 md:ml-5 lg:ml-0">
           <LeftBar subscribedChannels={subscriptions} />
         </div>
 

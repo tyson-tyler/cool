@@ -23,7 +23,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
   includeDescription = false,
 }) => {
   const truncatedTitle =
-    video.title.length > 20 ? video.title.slice(0, 20) + "..." : video.title;
+    video?.title.length > 20 ? video.title.slice(0, 20) + "..." : video.title;
 
   return (
     <Link
@@ -49,22 +49,22 @@ const VideoCard: React.FC<VideoCardProps> = ({
       <div className="flex gap-x-5 mt-4 flex-col">
         {channel ? (
           <div className="flex gap-2 items-center">
-            <Avatar size={AvatarSize.medium} imageSrc={channel.imageSrc} />
+            <Avatar size={AvatarSize?.medium} imageSrc={channel?.imageSrc} />
             <div className="flex flex-col">
               <h3 className="font-semibold text-lg">{truncatedTitle}</h3>
               <p className="text-gray-500 text-sm whitespace-nowrap">
-                {channel.name}
+                {channel?.name}
               </p>
             </div>
           </div>
         ) : null}
         <p className="text-gray-500 text-sm  mt-2 mb-1">
-          {compactNumberFormat(video.viewCount)} views * {""}
-          {dayjs(video.createdAt).fromNow()}
+          {compactNumberFormat(video?.viewCount)} views * {""}
+          {dayjs(video?.createdAt).fromNow()}
         </p>
         {includeDescription ? (
           <div className="whitespace-pre-line text-sm text-gray-500">
-            {video.description.split("/n").map((line, index) => {
+            {video?.description.split("/n").map((line, index) => {
               return line === "" ? <br key={index} /> : <p>{line}</p>;
             })}
           </div>

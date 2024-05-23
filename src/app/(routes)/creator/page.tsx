@@ -1,36 +1,122 @@
-import getCurrentSubscription from "@/actions/getCurrentSubscriptions";
-import getTreadingVideo from "@/actions/getTreadingVideo";
+"use client";
+
+import { useEffect, useState, useRef, useCallback } from "react";
 import LeftBar from "@/components/Leftbar";
 import VideoCard from "@/components/shared/VideoCard";
 import { Metadata } from "next";
+import { Suspense } from "react";
+import VideoTrack from "@/components/videotrack";
+import { Channel, Video } from "@prisma/client";
+import { SkeletonCard } from "@/components/Sketon";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "Popular",
-  },
-};
-export default async function Home() {
-  const subscriptions = await getCurrentSubscription();
-  const trendingVideos = await getTreadingVideo();
+// export const metadata: Metadata = {
+//   title: {
+//     absolute: "Dashboard",
+//   },
+// };
+
+interface VideoWithChannel {
+  channel: Channel;
+  video: Video;
+  id: string;
+  title: string;
+  thumbnailSrc: string;
+}
+
+const Home = () => {
+  const [trendingVideos, setTrendingVideos] = useState<VideoWithChannel[]>([]);
+  const [subscriptions, setSubscriptions] = useState<Channel[]>([]);
+  const [offset, setOffset] = useState(0);
+  const limit = 1;
+  const [loading, setLoading] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
+  const observer = useRef<IntersectionObserver>();
+
+  const fetchTrendingVideos = async (offset: number, limit: number) => {
+    try {
+      const response = await fetch(`/api/pure?offset=${offset}&limit=${limit}`);
+      const videos = await response.json();
+      setTrendingVideos((prevVideos) => [...prevVideos, ...videos]);
+      setHasMore(videos.length === limit);
+    } catch (error) {
+      console.error("Failed to fetch trending videos", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchSubscriptions = async () => {
+    try {
+      const response = await fetch("/api/sub"); // Adjust the endpoint if necessary
+      const subs = await response.json();
+      setSubscriptions(subs);
+    } catch (error) {
+      console.error("Failed to fetch subscriptions", error);
+    }
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    fetchTrendingVideos(0, limit); // Initial fetch
+    fetchSubscriptions();
+  }, []);
+
+  useEffect(() => {
+    if (offset === 0) return;
+    setLoading(true);
+    fetchTrendingVideos(offset, limit); // Fetch more videos when offset changes
+  }, [offset]);
+
+  const lastVideoElementRef = useCallback(
+    (node) => {
+      if (loading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          setOffset((prevOffset) => prevOffset + limit);
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [loading, hasMore]
+  );
+
   return (
-    <div className="w-full relative  mt-16 flex justify-center">
+    <div className="w-full relative mt-16 flex justify-center">
       <div className="sm:hidden md:flex flex flex-between md:mr-4">
         <LeftBar subscribedChannels={subscriptions} />
       </div>
-      <div className="basis-[85%] mb-[100px] lg:mb-[0px] gap-x-10 gap-y-10 mt-5 justify-center grid-container">
-        {trendingVideos
-          ? trendingVideos.map((trendingVideo) => {
-              return (
-                <VideoCard
-                  key={trendingVideo.id}
-                  video={trendingVideo}
-                  channel={trendingVideo.channel}
-                  channelAvatar={trendingVideo.thumbnailSrc}
-                />
-              );
-            })
-          : "No Video"}
-      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="basis-[85%] sm:mb-[100px] lg:mb-[0px] gap-x-10 gap-y-10 mt-5 justify-center grid-container lg:mr-5">
+          {trendingVideos.length > 0
+            ? trendingVideos.map((trendingVideo, index) => {
+                if (trendingVideos.length === index + 1) {
+                  return (
+                    <div ref={lastVideoElementRef} key={trendingVideo.id}>
+                      <VideoCard
+                        video={trendingVideo}
+                        channel={trendingVideo.channel}
+                        channelAvatar={trendingVideo.channel.imageSrc}
+                      />
+                    </div>
+                  );
+                } else {
+                  return (
+                    <VideoCard
+                      key={trendingVideo.id}
+                      video={trendingVideo}
+                      channel={trendingVideo.channel}
+                      channelAvatar={trendingVideo.channel.imageSrc}
+                    />
+                  );
+                }
+              })
+            : !loading && "No Videos"}
+          {loading && <SkeletonCard />}
+        </div>
+      </Suspense>
     </div>
   );
-}
+};
+
+export default Home;
