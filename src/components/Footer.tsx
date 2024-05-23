@@ -39,13 +39,13 @@ const Footer = () => {
   const currentChannel = useContext(CurrentChannelContext);
   useEffect(() => {
     // Prefetch the about page on component mount
-    router.prefetch("/about");
-    router.prefetch("/creator");
-    router.prefetch("/shorts");
+    // router.prefetch("/about");
+    // router.prefetch("/creator");
+    // router.prefetch("/shorts");
     // router.prefetch("/");
     // router.prefetch(`/channel/${currentChannel?.id}`);
     // router.prefetch("/studio");
-    router.prefetch("/studio/upload");
+    // router.prefetch("/studio/upload");
   }, [router]);
 
   return (
