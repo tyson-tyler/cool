@@ -14,9 +14,9 @@ const Shift = () => {
           <h1 className="text-xl lg:text-3xl font-bold text-neutral-600 max-w-[480px] text-center">
             Explore All the Ai Content, in one place, with Myaimix.
           </h1>
-          <div>
+          <Link href={"/about"}>
             <Button size={"lg"}>Explore</Button>
-          </div>
+          </Link>
         </div>
       </div>
       <div className="max-w-[988px] mx-auto flex-1 w-full flex flex-col lg:flex-row-reverse items-center justify-center p-4 gap-2 mt-[170px] ">
@@ -28,7 +28,9 @@ const Shift = () => {
             Get into with Ai and Enjoy the Content, with Myaimix.
           </h1>
           <div>
-            <Button size={"lg"}>Get Into It</Button>
+            <Link href={"/about"}>
+              <Button size={"lg"}>Get Into It</Button>
+            </Link>
           </div>
         </div>
       </div>
