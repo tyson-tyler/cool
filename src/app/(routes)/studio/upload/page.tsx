@@ -60,6 +60,8 @@ export default function UploadPage() {
         router.refresh();
         router.push("/");
         router.refresh();
+        router.push("/studio");
+        router.forward();
       })
       .catch(() => toast.error("something went wrong"))
       .finally(() => setIsLoading(false));
