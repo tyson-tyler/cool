@@ -65,7 +65,7 @@ const About = async () => {
             .
           </p>
           <div className="flex justify-center items-center mt-5 gap-3">
-            <Link href={"/about"}>
+            <Link href={"/"}>
               <Button className="p-5 justify-center flex" size={"lg"}>
                 Try it Now
               </Button>
