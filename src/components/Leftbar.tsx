@@ -47,7 +47,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
     <div className="relative sm:flex sm:flex-col sm:items-center lg:flex lg:items-start lg:mr-[28px] md:mr-[20px] max-md:hidden mt-10 lg:ml-[28px]">
       <div
         onClick={() => {
-          router.push(`/about`);
+          router.push(`/`);
         }}
         className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
       >
@@ -99,7 +99,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
       </div>
       <div
         onClick={() => {
-          router.push(`/`);
+          router.push(`/about`);
         }}
         className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
       >

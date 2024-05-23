@@ -14,7 +14,7 @@ const items = [
   {
     logo: <Home />,
 
-    url: "/about",
+    url: "/",
   },
   {
     logo: <Eye />,
