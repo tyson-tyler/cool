@@ -59,6 +59,7 @@ export default function UploadPage() {
         router.push(`/video/${videoId}`);
         router.refresh();
         router.push("/");
+        router.refresh();
       })
       .catch(() => toast.error("something went wrong"))
       .finally(() => setIsLoading(false));
