@@ -74,7 +74,7 @@ const Home = () => {
   );
 
   return (
-    <div className="w-full relative mt-16 flex justify-around">
+    <div className="w-full relative mt-16 flex justify-around lg:justify-between">
       <div className="sm:hidden md:flex flex flex-between md:mr-4 ">
         <LeftBar subscribedChannels={subscriptions} />
       </div>

@@ -76,11 +76,12 @@ const VideoCard: React.FC<VideoCardProps> = ({
           className="object-cover md:hover:scale-105 rounded-md w-full max-w-[40rem] h-[600px] sm:h-[600px] md:h-auto duration-150 transition-all ease-in"
           loop
           onLoadedData={handleVideoLoaded}
+          key={video.id}
         />
       </div>
       <div className="flex gap-x-5 mt-[-30px] mb-15 flex-col justify-center items-center z-50 mb-40">
         {channel ? (
-          <div className="flex gap-2 items-center z-20 dark:bg-neutral-800 bg-gray-100 text-black dark:text-white rounded-full p-2">
+          <div className="flex gap-2 items-center z-[2] dark:bg-neutral-800 bg-gray-100 text-black dark:text-white rounded-full p-2">
             <div>
               <LikeDisLikeButton video={video} />
             </div>

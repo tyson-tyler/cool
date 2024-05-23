@@ -27,7 +27,9 @@ const CreateChannelModel = () => {
       imageSrc: "",
     },
   });
+
   const imageSrc = watch("imageSrc");
+
   const handleImageUpload = (value: string) => {
     setValue("imageSrc", value, {
       shouldDirty: true,
@@ -35,6 +37,7 @@ const CreateChannelModel = () => {
       shouldValidate: true,
     });
   };
+
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
     axios
@@ -51,6 +54,7 @@ const CreateChannelModel = () => {
         setIsLoading(false);
       });
   };
+
   return createChannelModal?.isOpen ? (
     <>
       <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -76,17 +80,17 @@ const CreateChannelModel = () => {
                 value: /^[a-zA-Z0-9 ]*$/,
                 message: "Invalid name format",
               }}
-              required
-              className="w-3/4 mb-3"
+              required // Adding required attribute to make the input required
+              className={`w-3/4 mb-3 ${errors.name ? "border-red-500" : ""}`} // Applying conditional border color based on errors
             />
             <Input
               id="handle"
-              label="username"
+              label="Username"
               disabled={isLoading}
               register={register}
               errors={errors}
-              required
-              className="w-3/4"
+              required // Adding required attribute to make the input required
+              className={`w-3/4 ${errors.handle ? "border-red-500" : ""}`} // Applying conditional border color based on errors
             />
           </div>
           <div className="p-2 border-t border-gray-600 flex justify-end gap-3">
