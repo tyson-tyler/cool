@@ -14,6 +14,7 @@ import {
 import React, { useContext, useEffect } from "react";
 
 import Avatar, { AvatarSize } from "./Avatar";
+import { SiHomeadvisor } from "react-icons/si";
 import MenuItems from "./MenuItems";
 
 import { MdAccountCircle, MdCreate, MdWifiChannel } from "react-icons/md";
@@ -21,6 +22,8 @@ import { CreateChannelModalContext } from "@/context/CreateChannelModelContext";
 import { useRouter } from "next/navigation";
 import { CurrentChannelContext } from "@/context/CreateChannelContext";
 import SignInButton from "./UserOptions/SignInButton";
+import { BiSolidParty } from "react-icons/bi";
+import { GiFilmSpool } from "react-icons/gi";
 
 interface SideBarProps {
   subscribedChannels: Channel[];
@@ -52,9 +55,9 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
         className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
       >
         <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-          <HomeIcon className="w-7 h-7" />
+          <SiHomeadvisor className="w-7 h-7" />
         </div>
-        <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
+        <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all ">
           Home
         </div>
       </div>
@@ -65,7 +68,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
         className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
       >
         <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-          <EyeIcon className="w-7 h-7" />
+          <BiSolidParty className="w-7 h-7" />
         </div>
         <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
           Popular
@@ -78,7 +81,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
         className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
       >
         <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-          <FilmIcon className="w-7 h-7" />
+          <GiFilmSpool className="w-7 h-7" />
         </div>
         <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
           Clip
