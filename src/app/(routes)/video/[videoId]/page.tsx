@@ -65,7 +65,6 @@ export default async function VideoPage({
                     return (
                       <VideoCard
                         key={recommendedVideo.id}
-                        isVertical={false}
                         video={recommendedVideo}
                         channel={recommendedVideo.channel}
                         channelAvatar={channel.imageSrc}
