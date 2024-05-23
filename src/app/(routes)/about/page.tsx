@@ -70,7 +70,7 @@ const Home = () => {
   }, [offset]);
 
   const lastVideoElementRef = useCallback(
-    (node) => {
+    (node: any) => {
       if (loading) return;
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
