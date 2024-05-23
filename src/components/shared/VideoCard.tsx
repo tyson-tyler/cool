@@ -33,14 +33,16 @@ const VideoCard: React.FC<VideoCardProps> = ({
       <div className="relative w-full flex justify-center md:h-[500px] lg:h-[550px] sm:h-[500px] h-[400px] aspect-video">
         <Suspense fallback={"loading"}>
           <Image
-            className="object-cover md:hover:scale-95 hover:transition rounded-md transition ease-in-out"
+            className="object-cover rounded-md transition ease-in-out transform md:hover:scale-95"
             src={video.thumbnailSrc}
             alt="thumbnail"
             loading="lazy"
-            fill
+            layout="responsive"
+            width={500} // Set a default width
+            height={300} // Set a default height
             placeholder="blur"
             blurDataURL="/blur.svg"
-            sizes="(max-width:820px) 100vw"
+            sizes="(max-width: 820px) 100vw, 50vw"
           />
         </Suspense>
       </div>
