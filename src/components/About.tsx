@@ -1,11 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Metadata } from "next";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Suspense, lazy } from "react";
-import { SkeletonCard } from "@/components/Sketon";
-import Shift from "./Shift";
 
 // export const metadata: Metadata = {
 //   title: {
@@ -82,7 +80,6 @@ const About = async () => {
               </Button>
             </a>
           </div>
-          <Shift />
         </section>
       )}
     </Suspense>
