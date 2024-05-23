@@ -59,12 +59,7 @@ export default function SearchPageContent() {
           </div>
         ) : videos.length ? (
           videos.map((video) => (
-            <VideoCard
-              key={video.id}
-              isVertical={false}
-              video={video}
-              channel={video.channel}
-            />
+            <VideoCard key={video.id} video={video} channel={video.channel} />
           ))
         ) : (
           <div className="w-full h-fit justify-center flex items-center flex-col">
