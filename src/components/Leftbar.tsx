@@ -37,9 +37,9 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
     router.prefetch("/about");
     router.prefetch("/creator");
     router.prefetch("/shorts");
-    router.prefetch("/");
-    router.prefetch(`/channel/${currentChannel?.id}`);
-    router.prefetch("/studio");
+
+    // router.prefetch(`/channel/${currentChannel?.id}`);
+
     router.prefetch("/studio/upload");
   }, [router]);
 
