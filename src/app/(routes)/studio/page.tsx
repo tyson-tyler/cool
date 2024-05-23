@@ -1,7 +1,7 @@
 import getCurrentChannel from "@/actions/getCurrentChannel";
 import getCurrentSubscription from "@/actions/getCurrentSubscriptions";
 import getVideosByChannelId from "@/actions/getVideosByChannelId";
-import Avatar, { AvatarSize } from "@/components/Avatar";
+
 import LeftBar from "@/components/second";
 import AnalayticSummary from "@/components/studio/AnalayticSummary";
 import VideoDetailCard from "@/components/studio/VideoDetailCard";
