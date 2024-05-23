@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { useContext, useState } from "react";
 import Input from "../shared/Input";
 import axios from "axios";
-import MediaUpload from "../MediaUpload";
+import MediaUpload from "../PhotoUpload";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { CreateChannelModalContext } from "@/context/CreateChannelModelContext";
