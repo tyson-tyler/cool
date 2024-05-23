@@ -3,31 +3,19 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import LeftBar from "@/components/Leftbar";
 import VideoCard from "@/components/shared/VideoCard";
-import { Metadata } from "next";
 import { Suspense } from "react";
-import VideoTrack from "@/components/videotrack";
 import { Channel, Video } from "@prisma/client";
 import { SkeletonCard } from "@/components/Sketon";
 
-// export const metadata: Metadata = {
-//   title: {
-//     absolute: "Dashboard",
-//   },
-// };
-
-interface VideoWithChannel {
+interface VideoWithChannel extends Video {
   channel: Channel;
-  video: Video;
-  id: string;
-  title: string;
-  thumbnailSrc: string;
 }
 
 const Home = () => {
   const [trendingVideos, setTrendingVideos] = useState<VideoWithChannel[]>([]);
   const [subscriptions, setSubscriptions] = useState<Channel[]>([]);
   const [offset, setOffset] = useState(0);
-  const limit = 2;
+  const limit = 2; // Adjust this limit based on your preference
   const [loading, setLoading] = useState(true);
   const [hasMore, setHasMore] = useState(true);
   const observer = useRef<IntersectionObserver>();

@@ -1,4 +1,5 @@
 "use client";
+
 import { Channel, Video } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,12 +14,10 @@ interface VideoCardProps {
   channelAvatar?: string;
   video: Video;
   includeDescription?: boolean;
-  isVertical?: boolean;
 }
 
 const VideoCard: React.FC<VideoCardProps> = ({
   channel,
-
   video,
   includeDescription = false,
 }) => {
@@ -31,10 +30,10 @@ const VideoCard: React.FC<VideoCardProps> = ({
       href={`/video/${video.id}`}
       prefetch
     >
-      <div className="relative w-full flex justify-center  md:h-[500px] lg:h-[550px] sm:h-[500px] h-[400px] aspect-video">
-        <Suspense fallback={"loding"}>
+      <div className="relative w-full flex justify-center md:h-[500px] lg:h-[550px] sm:h-[500px] h-[400px] aspect-video">
+        <Suspense fallback={"loading"}>
           <Image
-            className="object-cover md:hover:scale-95 hover:transition rounded-md  transition ease-in-out "
+            className="object-cover md:hover:scale-95 hover:transition rounded-md transition ease-in-out"
             src={video.thumbnailSrc}
             alt="thumbnail"
             loading="lazy"
@@ -47,7 +46,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       </div>
 
       <div className="flex gap-x-5 mt-4 flex-col">
-        {channel ? (
+        {channel && (
           <div className="flex gap-2 items-center">
             <Avatar size={AvatarSize?.medium} imageSrc={channel?.imageSrc} />
             <div className="flex flex-col">
@@ -57,18 +56,22 @@ const VideoCard: React.FC<VideoCardProps> = ({
               </p>
             </div>
           </div>
-        ) : null}
-        <p className="text-gray-500 text-sm  mt-2 mb-1">
+        )}
+        <p className="text-gray-500 text-sm mt-2 mb-1">
           {compactNumberFormat(video?.viewCount)} views * {""}
           {dayjs(video?.createdAt).fromNow()}
         </p>
-        {includeDescription ? (
+        {includeDescription && (
           <div className="whitespace-pre-line text-sm text-gray-500">
             {video?.description.split("/n").map((line, index) => {
-              return line === "" ? <br key={index} /> : <p>{line}</p>;
+              return line === "" ? (
+                <br key={index} />
+              ) : (
+                <p key={index}>{line}</p>
+              );
             })}
           </div>
-        ) : null}
+        )}
       </div>
     </Link>
   );
