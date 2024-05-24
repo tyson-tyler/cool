@@ -4,7 +4,7 @@ import getCurrentSubscription from "@/actions/getCurrentSubscriptions";
 import { getRecommendedVideos } from "@/actions/getRecommendedVideos";
 import increaseVideoViewCount from "@/actions/increaseVideoViewCount";
 import { SheetDemo } from "@/components/he";
-import LeftBar from "@/components/second";
+
 import VideoCard from "@/components/shared/VideoCard";
 import CommentSection from "@/components/video/CommentSection/CommentSection";
 import Description from "@/components/video/Description";
@@ -48,7 +48,7 @@ export default async function VideoPage({
     <>
       <div className="w-full relative  mt-16 flex justify-center">
         <div className="w-full flex flex-col gap-4">
-          <div className="sm:hidden absolute top-1 z-50 md:flex flex flex-between md:mr-4 ml-4">
+          <div className="sm:hidden absolute top-1 z-[3] md:flex flex flex-between md:mr-4 ml-4">
             <SheetDemo />
           </div>
           <VideoPlayer videoSrc={video.videoSrc} />
