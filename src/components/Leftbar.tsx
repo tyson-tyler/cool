@@ -1,15 +1,6 @@
 "use client";
 import { CurrentUserContext } from "@/context/CurrentUserContext";
 import { Channel } from "@prisma/client";
-import {
-  Book,
-  Brush,
-  CirclePlus,
-  EyeIcon,
-  FilmIcon,
-  HomeIcon,
-  UsersRound,
-} from "lucide-react";
 
 import React, { useContext, useEffect } from "react";
 
@@ -17,13 +8,18 @@ import Avatar, { AvatarSize } from "./Avatar";
 import { SiHomeadvisor } from "react-icons/si";
 import MenuItems from "./MenuItems";
 
-import { MdAccountCircle, MdCreate, MdWifiChannel } from "react-icons/md";
 import { CreateChannelModalContext } from "@/context/CreateChannelModelContext";
 import { useRouter } from "next/navigation";
 import { CurrentChannelContext } from "@/context/CreateChannelContext";
 import SignInButton from "./UserOptions/SignInButton";
 import { BiSolidParty } from "react-icons/bi";
 import { GiFilmSpool } from "react-icons/gi";
+
+import { IoIosBookmarks } from "react-icons/io";
+import { RiAccountPinBoxFill } from "react-icons/ri";
+import { FaPaintBrush } from "react-icons/fa";
+import { BiSolidCloudUpload } from "react-icons/bi";
+import { IoImage } from "react-icons/io5";
 
 interface SideBarProps {
   subscribedChannels: Channel[];
@@ -47,7 +43,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
   }, [router]);
 
   return (
-    <div className="relative sm:flex sm:flex-col sm:items-center lg:flex lg:items-start lg:mr-[28px] md:mr-[20px] max-md:hidden mt-10 lg:ml-[28px]">
+    <div className="sticky top-1 h-screen sm:flex sm:flex-col sm:items-center lg:flex lg:items-start lg:mr-[28px] md:mr-[20px] max-md:hidden mt-10 lg:ml-[28px]">
       <div
         onClick={() => {
           router.push(`/`);
@@ -94,10 +90,10 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
         className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
       >
         <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-          <UsersRound className="w-7 h-7" />
+          <IoImage className="w-7 h-7" />
         </div>
         <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
-          Community
+          Image
         </div>
       </div>
       <div
@@ -107,7 +103,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
         className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
       >
         <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-          <Book className="w-7 h-7" />
+          <IoIosBookmarks className="w-7 h-7" />
         </div>
         <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
           About
@@ -130,7 +126,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
             className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
           >
             <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-              <MdAccountCircle className="w-7 h-7" />
+              <RiAccountPinBoxFill className="w-7 h-7" />
             </div>
             <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
               Channel
@@ -164,7 +160,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
             className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
           >
             <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-              <Brush className="w-7 h-7" />
+              <FaPaintBrush className="w-7 h-7" />
             </div>
             <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
               Studio
@@ -178,7 +174,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
             className="flex flex-row  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
           >
             <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
-              <CirclePlus className="w-7 h-7" />
+              <BiSolidCloudUpload className="w-7 h-7" />
             </div>
             <div className="leading-none text-base flex gap-5 items-center p-4 rounded-md justify-start md:hidden lg:flex font-semibold transition-all">
               Upload

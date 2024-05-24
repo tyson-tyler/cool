@@ -5,9 +5,11 @@ import getVideosByChannelId from "@/actions/getVideosByChannelId";
 import LeftBar from "@/components/second";
 import AnalayticSummary from "@/components/studio/AnalayticSummary";
 import VideoDetailCard from "@/components/studio/VideoDetailCard";
+import { Button } from "@/components/ui/button";
 
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: {
@@ -41,11 +43,29 @@ const page = async () => {
           <div className="flex flex-col gap-4 mt-8">
             <h2 className="text-2xl text-center font-semibold">Videos</h2>
             <div className="py-5 grid-container">
-              {videos.length
-                ? videos.map((video) => {
-                    return <VideoDetailCard key={video.id} video={video} />;
-                  })
-                : "there is No Video"}
+              {videos.length ? (
+                videos.map((video) => {
+                  return <VideoDetailCard key={video.id} video={video} />;
+                })
+              ) : (
+                <div className="flex flex-col justify-center items-center">
+                  <Image
+                    src={"/logo/em.svg"}
+                    width={100}
+                    height={100}
+                    alt="hello"
+                    className="mt-20"
+                  />
+                  <span className="font-semibold text-black dark:text-white p-4">
+                    No Video
+                  </span>
+                  <Link href={`/studio/upload`}>
+                    <Button size={"lg"} className="p-3">
+                      Create Now
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
