@@ -15,6 +15,7 @@ import { GiFilmSpool } from "react-icons/gi";
 import { IoImage } from "react-icons/io5";
 import { RiAccountPinBoxFill } from "react-icons/ri";
 import { FaPaintBrush } from "react-icons/fa";
+import { IoIosBookmarks } from "react-icons/io";
 
 const items = [
   {
@@ -83,6 +84,7 @@ const Footer = () => {
               <BiSolidCloudUpload className="w-7 h-7" />
             </div>
           </div>
+
           <div
             onClick={() => {
               if (!currentChannel) {

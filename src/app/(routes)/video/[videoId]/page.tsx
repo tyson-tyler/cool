@@ -51,7 +51,7 @@ export default async function VideoPage({
           <div className="sm:hidden absolute top-1 z-[50] md:flex flex flex-between md:mr-4 ml-4">
             <SheetDemo />
           </div>
-          <VideoPlayer videoSrc={video.videoSrc} />
+          <VideoPlayer userId={channel.userId} videoSrc={video.videoSrc} />
           <div className="mx-2">
             <LikeSubscribePage video={video} channel={channel} />
             <h1 className="text-2xl my-2 pb-2 font-semibold break-all dark:text-white text-black">
