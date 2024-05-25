@@ -22,11 +22,11 @@ export default async function ChannelPage({
   return channel ? (
     <>
       <div className="flex">
-        <div className="sm:hidden  md:flex flex flex-between md:mr-0 mt-12 md:ml-5 lg:ml-0">
+        <div className="sm:hidden  md:flex flex flex-between md:mr-0 mt-12 md:ml-5 lg:ml-0 w-full">
           <LeftBar subscribedChannels={subscriptions} />
         </div>
 
-        <div className="flex flex-col mr-10 ml-5">
+        <div className="flex flex-col mr-10 ml-5 w-full">
           <div>
             <div className="flex flex-col">
               <ChannelHeader channel={channel} videoCount={videos.length} />
