@@ -122,7 +122,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
                 router.push(`/channel/${currentChannel.id}`);
               }
             }}
-            className="flex flex-row justify-center  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+            className="flex flex-row justify-center lg:justify-normal  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
           >
             <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
               <RiAccountPinBoxFill className="w-7 h-7" />
@@ -156,7 +156,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
                 router.push(`/studio`);
               }
             }}
-            className="flex flex-row justify-center  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+            className="flex flex-row justify-center  lg:justify-normal  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
           >
             <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
               <FaPaintBrush className="w-7 h-7" />
@@ -170,7 +170,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
               if (!currentChannel) createChannelModal?.onOpen();
               else router.push("/studio/upload");
             }}
-            className="flex flex-row justify-center  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
+            className="flex flex-row justify-center lg:justify-normal  cursor-pointer items-center gap-x-3 text-2xl opacity-80 hover:scale-105 transform transition gap-6"
           >
             <div className="flex items-center gap-x-3 text-2xl my-5 opacity-80 hover:opacity-100 gap-6">
               <BiSolidCloudUpload className="w-7 h-7" />
