@@ -46,13 +46,13 @@ const Footer = () => {
   const currentChannel = useContext(CurrentChannelContext);
   useEffect(() => {
     // Prefetch the about page on component mount
-    // router.prefetch("/about");
-    // router.prefetch("/creator");
-    // router.prefetch("/shorts");
-    // router.prefetch("/");
-    // router.prefetch(`/channel/${currentChannel?.id}`);
-    // router.prefetch("/studio");
-    // router.prefetch("/studio/upload");
+    router.prefetch("/about");
+    router.prefetch("/creator");
+    router.prefetch("/shorts");
+    router.prefetch("/");
+    router.prefetch(`/channel/${currentChannel?.id}`);
+    router.prefetch("/studio");
+    router.prefetch("/studio/upload");
   }, [router]);
 
   return (
@@ -65,7 +65,7 @@ const Footer = () => {
             href={item.url}
             className="flex ml-3 mr-3"
             key={index}
-            prefetch={false}
+            prefetch={true}
           >
             <div className="flex  items-center gap-x-3  text-2xl my-5 opacity-80 hover:opacity-100 gap-6 transition hover:scale-105">
               <div className="flex">{item.logo}</div>

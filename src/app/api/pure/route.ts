@@ -26,7 +26,7 @@ async function fetchVideos(
       ...video,
       channel: video.Channel || null, // Ensure channel property is not undefined
     })) as (Video & { channel: Channel })[];
-    console.log(videosWithChannels);
+
     return videosWithChannels;
   } catch (error: any) {
     throw new Error("Failed to fetch videos: " + error.message);
