@@ -65,7 +65,7 @@ const Footer = () => {
             href={item.url}
             className="flex ml-3 mr-3"
             key={index}
-            // prefetch={true}
+            prefetch={true}
           >
             <div className="flex  items-center gap-x-3  text-2xl my-5 opacity-80 hover:opacity-100 gap-6 transition hover:scale-105">
               <div className="flex">{item.logo}</div>

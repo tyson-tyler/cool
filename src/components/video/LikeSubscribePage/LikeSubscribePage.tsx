@@ -27,11 +27,11 @@ const LikeSubscribePage: React.FC<LikeSubscribePageProps> = ({
     <>
       <div className="flex justify-between items-center">
         <div className="flex gap-3 items-center">
-          <Link href={`/channel/${channel.id}`}>
+          <Link href={`/channel/${channel.id}`} prefetch={true}>
             <Avatar size={AvatarSize.extra} imageSrc={channel.imageSrc} />
           </Link>
           <div className="flex flex-col justify-between mr-2">
-            <Link href={`/channel/${channel.id}`}>
+            <Link href={`/channel/${channel.id}`} prefetch={true}>
               <h2 className="text-lg font-semibold">{channel.name}</h2>
             </Link>
             <p className="text-sm text-gray-500">
