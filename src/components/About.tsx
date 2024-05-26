@@ -56,10 +56,10 @@ const About = async () => {
           </div>
         </section>
       ) : (
-        <div className="w-full rounded-md overflow-hidden">
+        <div className="w-full rounded-lg overflow-hidden">
           <Vortex
-            backgroundColor="black"
-            className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
+            backgroundColor="transparent"
+            className="flex items-center bg-transparent flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
           >
             <section className="w-full flex-center flex-col mt-6 ">
               <h1 className="head_text text-center pt-[200px] dark:text-white text-black">
