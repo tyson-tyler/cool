@@ -8,7 +8,6 @@ import {
   MdThumbDown,
   MdThumbUp,
 } from "react-icons/md";
-import Loader from "./Loader";
 import { Loader2 } from "lucide-react";
 
 interface LikeDisLikeButtonProps {
@@ -64,7 +63,7 @@ const LikeDisLikeButton: React.FC<LikeDisLikeButtonProps> = ({ video }) => {
           }`}
           onClick={() => handleLikeDislike("like")}
         >
-          {loading && likeDislikeStatus === LikeDislikeStatus.Liked ? (
+          {loading ? (
             <span>
               <Loader2 className="w-5 h-5 animate-spin" />
             </span>
@@ -76,7 +75,7 @@ const LikeDisLikeButton: React.FC<LikeDisLikeButtonProps> = ({ video }) => {
           <p>{compactNumberFormat(video.likeCount)}</p>
         </button>
         <button className="pl-2" onClick={() => handleLikeDislike("dislike")}>
-          {loading && likeDislikeStatus === LikeDislikeStatus.Disliked ? (
+          {loading ? (
             <div className="spinner-border" role="status">
               <span>
                 <Loader2 className="w-5 h-5 animate-spin" />
