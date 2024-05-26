@@ -18,7 +18,7 @@ import { FlipWords } from "./ui/flip-words";
 
 const About = async () => {
   const [isLoading, setIsLoading] = useState(true);
-  const words = ["better", "cute", "modern", "real", "cool"];
+  const words = ["better,", "cute,", "modern,", "cool"];
   useEffect(() => {
     // Simulate data loading delay for 2 seconds
     const timer = setTimeout(() => {
