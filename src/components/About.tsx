@@ -56,12 +56,12 @@ const About = async () => {
           </div>
         </section>
       ) : (
-        <div className="w-full rounded-md  h-[30rem] overflow-hidden">
+        <div className="w-full rounded-md overflow-hidden">
           <Vortex
             backgroundColor="black"
             className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
           >
-            <section className="w-full flex-center flex-col mt-6">
+            <section className="w-full flex-center flex-col mt-6 ">
               <h1 className="head_text text-center pt-[200px] dark:text-white text-black">
                 <span className="dark:text-white text-black">
                   Explore & Create
@@ -74,7 +74,7 @@ const About = async () => {
                 Myaimix is an open-source Ai Video & Image watch and create your
                 own .
               </p>
-              <div className="flex justify-center items-center mt-5 gap-3">
+              <div className="flex justify-center items-center mt-5 gap-3 mb-20">
                 <Link href={"/"}>
                   <Button className="p-5 justify-center flex" size={"lg"}>
                     Try it Now

@@ -29,7 +29,7 @@ const Input = () => {
   return (
     <form
       autoComplete="off"
-      className="bg-gray-100 text-black dark:text-white dark:bg-gray-700 rounded-md flex items-center pl-[4px] lg:w-[700px] md:w-[500px] sm:[200px] w-[200px] h-10"
+      className="bg-gray-100 text-black dark:text-white dark:bg-gray-800 rounded-md flex items-center pl-[4px] lg:w-[700px] md:w-[500px] sm:[200px] w-[200px] h-10"
       onSubmit={handleSearch}
     >
       <input
@@ -49,7 +49,7 @@ const Input = () => {
           type="submit"
           aria-label="search"
         >
-          <BiSearch className="w-5 h-5   text-black dark:text-white" />
+          <BiSearch className="w-5 h-5  text-black dark:text-white" />
         </Button>
       </label>
     </form>
