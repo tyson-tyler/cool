@@ -18,7 +18,7 @@ import { FlipWords } from "./ui/flip-words";
 
 const About = async () => {
   const [isLoading, setIsLoading] = useState(true);
-  const words = ["better,", "cute,", "modern,", "cool"];
+
   useEffect(() => {
     // Simulate data loading delay for 2 seconds
     const timer = setTimeout(() => {
@@ -64,7 +64,7 @@ const About = async () => {
             <section className="w-full flex-center flex-col mt-6">
               <h1 className="head_text text-center pt-[200px] dark:text-white text-black">
                 <span className="dark:text-white text-black">
-                  Explore <FlipWords words={words} />
+                  Explore & Create
                 </span>
                 <br className="max-md:hidden" />
                 <span className="usespan text-center ml-2">Ai Video</span>
