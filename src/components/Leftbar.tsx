@@ -112,6 +112,7 @@ const LeftBar: React.FC<SideBarProps> = ({ subscribedChannels }) => {
       {/* {currentChannel ? <div>
         
       </div> : null} */}
+
       {currentUser ? (
         <div>
           <div
