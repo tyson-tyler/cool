@@ -25,10 +25,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
     video?.title.length > 20 ? video.title.slice(0, 20) + "..." : video.title;
 
   return (
-    <Link
-      className="m-auto w-full block mt-13 mb-3"
-      href={`/video/${video.id}`}
-    >
+    <Link className="m-auto  block mt-13 mb-3" href={`/video/${video.id}`}>
       <div className="relative w-full flex justify-center md:h-[500px] lg:h-[550px] sm:h-[500px] h-[400px] aspect-video">
         <Suspense fallback={"loading"}>
           <Image
