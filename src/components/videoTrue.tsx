@@ -69,7 +69,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       href={`/video/${video.id}`}
       prefetch={true}
     >
-      <div className="relative w-full flex justify-center lg:justify-center lg:h-[550px] aspect-auto">
+      <div className="relative w-full flex justify-center lg:justify-center lg:h-[550px] aspect-video">
         <video
           ref={videoRef}
           src={video.videoSrc}
