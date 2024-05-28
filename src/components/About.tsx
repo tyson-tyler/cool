@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Suspense, lazy } from "react";
 
 import { Vortex } from "./ui/votex";
-import { FlipWords } from "./ui/flip-words";
+import Card from "./card";
 
 // export const metadata: Metadata = {
 //   title: {
