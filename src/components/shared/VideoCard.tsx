@@ -33,7 +33,6 @@ const VideoCard: React.FC<VideoCardProps> = ({
             src={video.thumbnailSrc}
             alt="thumbnail"
             decoding="async"
-            data-nimg="1"
             loading="lazy"
             layout="responsive"
             width={500} // Set a default width
