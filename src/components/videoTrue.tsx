@@ -69,11 +69,11 @@ const VideoCard: React.FC<VideoCardProps> = ({
       href={`/video/${video.id}`}
       prefetch={true}
     >
-      <div className="relative w-full flex justify-center lg:justify-center lg:h-[550px] aspect-video">
+      <div className="relative w-full flex justify-center lg:justify-center  aspect-video  max-w-[40rem] h-[600px] sm:h-[600px] lg:h-auto duration-150 transition-all ease-in">
         <video
           ref={videoRef}
           src={video.videoSrc}
-          className="object-cover md:hover:scale-105 rounded-md w-full max-w-[50rem] h-[600px] sm:h-[600px] lg:h-auto duration-150 transition-all ease-in"
+          className="object-fit md:hover:scale-105 rounded-md w-full"
           loop
           onLoadedData={handleVideoLoaded}
           key={video.id}
