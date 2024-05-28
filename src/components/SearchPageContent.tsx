@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Loader } from "lucide-react";
 import Image from "next/image";
 import VideoCard from "./shared/VideoCard";
+import { SkeletonCard } from "./Sketon";
 
 export default function SearchPageContent() {
   const params = useSearchParams();
@@ -53,7 +54,7 @@ export default function SearchPageContent() {
           <div className="w-full h-screen justify-center flex items-center">
             <div className="flex justify-center items-center">
               <span className="usespan text-xl">
-                <Loader className="w-10 h-10 animate-spin" />
+                <SkeletonCard />
               </span>
             </div>
           </div>
