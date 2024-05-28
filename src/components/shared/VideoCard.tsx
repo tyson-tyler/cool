@@ -25,14 +25,17 @@ const VideoCard: React.FC<VideoCardProps> = ({
     video?.title.length > 20 ? video.title.slice(0, 20) + "..." : video.title;
 
   return (
-    <Link className="m-auto  block mt-13 mb-3" href={`/video/${video.id}`}>
+    <Link
+      className="m-auto w-full block mt-13 mb-3"
+      href={`/video/${video.id}`}
+      prefetch
+    >
       <div className="relative w-full flex justify-center md:h-[500px] lg:h-[550px] sm:h-[500px] h-[400px] aspect-video">
         <Suspense fallback={"loading"}>
           <Image
             className="object-cover rounded-md transition ease-in-out transform md:hover:scale-95"
             src={video.thumbnailSrc}
             alt="thumbnail"
-            decoding="async"
             loading="lazy"
             layout="responsive"
             width={500} // Set a default width
