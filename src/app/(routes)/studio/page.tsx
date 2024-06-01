@@ -25,7 +25,7 @@ const page = async () => {
   return (
     <div className="w-full flex">
       <div className="sm:hidden border-r border-gray-500 md:flex flex flex-between md:mr-0 mt-12 md:ml-5 lg:ml-0">
-        {/* <LeftBar subscribedChannels={subscriptions} /> */}
+        <LeftBar subscribedChannels={subscriptions} />
       </div>
       <div className="flex flex-col w-full">
         <div className="flex justify-center items-center mt-40">
