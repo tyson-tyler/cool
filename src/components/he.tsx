@@ -16,7 +16,7 @@ export async function SheetDemo() {
         </Button>
       </SheetTrigger>
       <SheetContent>
-        <LeftBar subscribedChannels={subscriptions} />
+        {/* <LeftBar subscribedChannels={subscriptions} /> */}
       </SheetContent>
     </Sheet>
   );

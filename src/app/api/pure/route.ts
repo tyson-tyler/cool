@@ -24,7 +24,7 @@ async function fetchVideos(
     // Map channel information to each video
     const videosWithChannels = videos.map((video) => ({
       ...video,
-      channel: video.Channel || null, // Ensure channel property is not undefined
+      channel: video.channel || null, // Ensure channel property is not undefined
     })) as (Video & { channel: Channel })[];
 
     return videosWithChannels;
