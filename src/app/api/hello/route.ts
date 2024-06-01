@@ -10,7 +10,7 @@ async function fetchVideos(
   try {
     const videos = await prisma.video.findMany({
       include: {
-        channel: true,
+        Channel: true,
       },
       orderBy: {
         createdAt: "desc",
@@ -22,7 +22,7 @@ async function fetchVideos(
     // Map channel information to each video
     const videosWithChannels = videos.map((video) => ({
       ...video,
-      channel: video.channel || null, // Ensure channel property is not undefined
+      channel: video.Channel || null, // Ensure channel property is not undefined
     })) as (Video & { channel: Channel })[];
     // console.log(videosWithChannels);
     return videosWithChannels;
