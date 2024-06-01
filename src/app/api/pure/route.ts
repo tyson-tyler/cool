@@ -10,7 +10,7 @@ async function fetchVideos(
   try {
     const videos = await prisma.video.findMany({
       include: {
-        Channel: true,
+        channel: true,
       },
       orderBy: [
         {

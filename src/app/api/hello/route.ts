@@ -10,7 +10,7 @@ async function fetchVideos(
   try {
     const videos = await prisma.video.findMany({
       include: {
-        Channel: true,
+        channel: true,
       },
       orderBy: {
         createdAt: "desc",
@@ -24,7 +24,7 @@ async function fetchVideos(
       ...video,
       channel: video.channel || null, // Ensure channel property is not undefined
     })) as (Video & { channel: Channel })[];
-    console.log(videosWithChannels);
+    // console.log(videosWithChannels);
     return videosWithChannels;
   } catch (error: any) {
     throw new Error("Failed to fetch videos: " + error.message);
