@@ -36,8 +36,8 @@ async function fetchVideos(
 // API handler
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const offset = parseInt(searchParams.get("offset") || "0", 10);
-  const limit = parseInt(searchParams.get("limit") || "10", 10);
+  const offset = parseInt(searchParams.get("offset") || "0", 2);
+  const limit = parseInt(searchParams.get("limit") || "2", 2);
 
   try {
     const videos = await fetchVideos(offset, limit);

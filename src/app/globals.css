@@ -111,6 +111,13 @@ button {
   grid-gap: 20px;
 }
 
+@media (max-width: 768px) {
+  /* Adjust the max-width value to define your medium-sized screen */
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  }
+}
+
 .head_text {
   @apply mt-5 text-5xl font-extrabold leading-[1.15] text-white sm:text-6xl;
 }

@@ -20,7 +20,7 @@ const ChannelHeader: React.FC<ChannelHeaderProps> = ({
 }) => {
   const currentUser = useContext(CurrentUserContext);
   const [isUpdateProfileModalOpen, setIsUpdateProfileModalOpen] =
-    useState(false);
+    useState(true);
 
   // Function to handle opening the UpdateProfileModal when avatar is clicked
   const handleAvatarClick = () => {
