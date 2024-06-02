@@ -10,7 +10,7 @@ async function fetchVideos(
   try {
     const videos = await prisma.video.findMany({
       include: {
-        Channel: true,
+        channel: true,
       },
       orderBy: [
         {
@@ -24,7 +24,7 @@ async function fetchVideos(
     // Map channel information to each video
     const videosWithChannels = videos.map((video) => ({
       ...video,
-      channel: video.Channel || null, // Ensure channel property is not undefined
+      channel: video.channel || null, // Ensure channel property is not undefined
     })) as (Video & { channel: Channel })[];
 
     return videosWithChannels;
@@ -36,8 +36,8 @@ async function fetchVideos(
 // API handler
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const offset = parseInt(searchParams.get("offset") || "0", 2);
-  const limit = parseInt(searchParams.get("limit") || "2", 10);
+  const offset = parseInt(searchParams.get("offset") || "0", 10);
+  const limit = parseInt(searchParams.get("limit") || "10", 10);
 
   try {
     const videos = await fetchVideos(offset, limit);
